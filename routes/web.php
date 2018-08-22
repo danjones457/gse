@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
-Route::get('/team-sheets/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
+Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
 Route::get('/match-reports', 'MatchReportsController@index')->name('match-reports');
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
 Route::get('/news', 'NewsController@index')->name('news');

@@ -2,8 +2,8 @@
 
 .card-container {
     background-color: $gseblack;
-    max-width: calc((100% / 3) - 100px);
-    width: calc((100% / 3) - 100px);
+    max-width: calc((100% / 3) - 10vw);
+    width: calc((100% / 3) - 10vw);
     border-radius: 15px;
     float: left;
     margin-top: 1rem;
@@ -13,6 +13,9 @@
     &:hover {
         box-shadow: 0 0 3px #525252;
     }
+    @media screen and (max-width: 530px) {
+        height: 78px !important;
+    }
 }
 
 .card-image {
@@ -21,6 +24,9 @@
     margin-top: 1rem;
     margin-left:auto;
     margin-right: auto;
+    @media screen and (max-width: 530px) {
+        display: none;
+    }
 }
 
 .card-name {
@@ -32,11 +38,25 @@
 }
 
 .profile-container {
-    max-width: calc(100% - 300px);
-    width: calc(100% - 300px);
+    max-width: calc(100% - 10vw);
+    width: calc(100% - 10vw);
     background-color: $gseblack;
     height: 100%;
     color: $gseyellow;
     margin-left: auto;
     margin-right: auto;
+}
+.profile-image-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+}
+.profile-image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.profile-text {
+
 }

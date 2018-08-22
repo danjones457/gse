@@ -40,6 +40,6 @@ class TeamSheetsController extends Controller
         array_push($teams, $team1);
         array_push($teams, $team2);
 
-        return view('team-sheet', ['teams' => $teams, 'gameweek' => 'Gameweek 1']);
+        return view('team-sheet', ['teams' => $teams, 'gameweek' => $gameweek]);
     }
 }
