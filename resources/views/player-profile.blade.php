@@ -12,10 +12,10 @@
 
 @foreach($player as $player)
 <div class="profile-container flex flex-wrap-wrap">
-    <div class="pl1 pt1 pr1 col-lg-4">
-        <img src="{{ asset('images/largerGSELogo.jpg') }}" alt="" class="border-radius-50p"><br>
+    <div class="pl1 pt1 pr1 col-lg-4 profile-image-container">
+        <img src="{{ asset('images/largerGSELogo.jpg') }}" alt="" class="border-radius-50p profile-image">
     </div>
-    <div class="p1 mla col-lg-5">
+    <div class="p1 mla profile-text">
         <span class="fz55">{{ $player->firstname}} {{ $player->lastname }}</span><br>
         <span class="fz20">D.O.B: {{ $player->dob }}</span><br>
         <span class="fz20">Positions: {{ $player->positions }}</span><br>

@@ -1,7 +1,7 @@
 .card-container {
   background-color: #000000;
-  max-width: calc((100% / 3) - 100px);
-  width: calc((100% / 3) - 100px);
+  max-width: calc((100% / 3) - 10vw);
+  width: calc((100% / 3) - 10vw);
   border-radius: 15px;
   float: left;
   margin-top: 1rem;
@@ -15,12 +15,24 @@
           box-shadow: 0 0 3px #525252;
 }
 
+@media screen and (max-width: 530px) {
+  .card-container {
+    height: 78px !important;
+  }
+}
+
 .card-image {
   max-width: calc(100% - 100px);
   display: block;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 530px) {
+  .card-image {
+    display: none;
+  }
 }
 
 .card-name {
@@ -32,12 +44,25 @@
 }
 
 .profile-container {
-  max-width: calc(100% - 300px);
-  width: calc(100% - 300px);
+  max-width: calc(100% - 10vw);
+  width: calc(100% - 10vw);
   background-color: #000000;
   height: 100%;
   color: #f4ff2a;
   margin-left: auto;
   margin-right: auto;
+}
+
+.profile-image-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30vw;
+}
+
+.profile-image {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
