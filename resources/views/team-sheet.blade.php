@@ -10,7 +10,7 @@
 @section('content')
 <div class="page-container">
     <div class="team-title fz30">
-        {{ $gameweek }}
+        Gameweek {{ $gameweek }}
     </div>
     @foreach($teams as $team)
         <div class="team-title fz30">

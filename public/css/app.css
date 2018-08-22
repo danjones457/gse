@@ -4160,7 +4160,7 @@ body {
   top: 18px;
 }
 
-a:visited {
-  color: #f4ff2a !important;
+a {
+  color: #f4ff2a;
 }
 
