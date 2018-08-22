@@ -9,7 +9,7 @@
 @section('content')
 
 @foreach($gameweeks as $gameweek)
-    <a href="/team-sheet/{$gameweek->gameweek}">Gameweek {{ $gameweek->gameweek }}</a>
+    <a href="/team-sheet/{{$gameweek->gameweek}}">Gameweek {{ $gameweek->gameweek }}</a>
 @endforeach
 
 @endsection
