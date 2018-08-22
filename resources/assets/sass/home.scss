@@ -1,0 +1,28 @@
+@import 'partial/variables';
+
+html, body {
+    background-color: $gseblack;
+    color: $gseyellow;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.gse-logo {
+    max-height: 300px;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}

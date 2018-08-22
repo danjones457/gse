@@ -1,0 +1,42 @@
+@import 'partial/variables';
+
+.card-container {
+    background-color: $gseblack;
+    max-width: calc((100% / 3) - 100px);
+    width: calc((100% / 3) - 100px);
+    border-radius: 15px;
+    float: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    &:hover {
+        box-shadow: 0 0 3px #525252;
+    }
+}
+
+.card-image {
+    max-width: calc(100% - 100px);
+    display: block;
+    margin-top: 1rem;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.card-name {
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    text-align: center;
+    color: $gseyellow;
+}
+
+.profile-container {
+    max-width: calc(100% - 300px);
+    width: calc(100% - 300px);
+    background-color: $gseblack;
+    height: 100%;
+    color: $gseyellow;
+    margin-left: auto;
+    margin-right: auto;
+}

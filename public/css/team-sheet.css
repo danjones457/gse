@@ -1,0 +1,102 @@
+.team-title {
+  max-width: 480px;
+  width: 480px;
+  text-align: center;
+  background-color: #000000;
+  color: #f4ff2a;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-container {
+  max-width: 480px;
+  width: 480px;
+  height: 600px;
+  max-height: 600px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #000000;
+  color: #f4ff2a;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.player-container {
+  max-width: 48px;
+  width: 48px;
+}
+
+.player-shirt {
+  width: 48px;
+}
+
+.player-name {
+  width: 132px;
+  max-width: 132px;
+  position: absolute;
+  left: -42px;
+  text-align: center;
+}
+
+.GK {
+  display: block;
+  position: absolute;
+  left: 214px;
+  top: 500px;
+  max-width: 48px;
+}
+
+.LB {
+  display: block;
+  position: absolute;
+  left: 125px;
+  top: 385px;
+}
+
+.RB {
+  display: block;
+  position: absolute;
+  left: 320px;
+  top: 385px;
+}
+
+.CM {
+  display: block;
+  position: absolute;
+  left: 215px;
+  top: 285px;
+}
+
+.RM {
+  display: block;
+  position: absolute;
+  left: 328px;
+  top: 170px;
+}
+
+.LM {
+  display: block;
+  position: absolute;
+  left: 99px;
+  top: 170px;
+}
+
+.ST {
+  display: block;
+  position: absolute;
+  left: 214px;
+  top: 95px;
+}
+
+.page-container {
+  display: block;
+  width: calc(90% + (10% /3));
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+

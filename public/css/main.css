@@ -1,0 +1,17 @@
+.header-links {
+  background-color: #000000;
+  text-align: center;
+  padding: 0 25px;
+  font-size: 20px !important;
+  font-weight: normal;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  border-bottom: 3px solid #f4ff2a;
+}
+
+.header-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
