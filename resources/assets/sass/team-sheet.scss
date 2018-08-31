@@ -29,6 +29,24 @@
     position: relative;
 }
 
+.subs {
+    max-width: 200px;
+    width: 200px;
+    height: 200px;
+    max-height: 200px;
+    background-color: $gseblack;
+    color: $gseyellow;
+    text-align: center;
+    position: absolute;
+    @media screen and (min-width: 950px) {
+        left: -200px;
+    }
+    @media screen and (max-width: 950px) {
+        bottom: -200px;
+        left: 240px;
+    }
+}
+
 .player-container {
     max-width: 48px;
     width: 48px;

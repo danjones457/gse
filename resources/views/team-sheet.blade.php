@@ -14,7 +14,7 @@
     </div>
     @foreach($teams as $team)
         <div class="team-title fz30">
-            {{ $team[7] }}
+            {{ $team_names[$loop->index] }}
         </div>
         <div class="team-container non-mobile">
             <div class="player-container GK">
@@ -45,6 +45,20 @@
                 <img src="{{ asset('images/gseshirt.jpg') }}" alt="GSE Shirt" class="player-shirt">
                 <span class="player-name">{{ $team[6]->lastname }}</span>
             </div>
+            @if(isset($team[7]->lastname))
+            <div class="subs col-md-2 non-mobile">
+                <h3 class="text-yellow">Substitutes</h3>
+                @if(isset($team[7]->lastname))
+                    <span>{{ $team[7]->lastname }}</span>
+                @endif
+                @if(isset($team[8]->lastname))
+                    <span>{{ $team[8]->lastname }}</span>
+                @endif
+                @if(isset($team[9]->lastname))
+                    <span>{{ $team[9]->lastname }}</span>
+                @endif
+            </div>
+            @endif
         </div>
         <div class="mobile">
             <div class="mobile-player-container">
@@ -82,6 +96,24 @@
                 <span class="mobile-name">{{ $team[6]->lastname }}</span>
                 <span class="mobile-position">ST</span>
             </div>
+            @if(isset($team[7]->lastname))
+            <h3 class="team-title fz30">Substitutes</h3>
+            @endif
+            <div class="mobile-name tac">
+                @if(isset($team[7]->lastname))
+                    <img src="{{ asset('images/gseshirt.jpg') }}" alt="GSE Shirt" class="player-shirt">
+                    <span>{{ $team[7]->lastname }}</span>
+                @endif
+                @if(isset($team[8]->lastname))
+                    <img src="{{ asset('images/gseshirt.jpg') }}" alt="GSE Shirt" class="player-shirt">
+                    <span>{{ $team[8]->lastname }}</span>
+                @endif
+                @if(isset($team[9]->lastname))
+                    <img src="{{ asset('images/gseshirt.jpg') }}" alt="GSE Shirt" class="player-shirt">
+                    <span>{{ $team[9]->lastname }}</span>
+                @endif
+            </div>
+
         </div>
     @endforeach
 </div>

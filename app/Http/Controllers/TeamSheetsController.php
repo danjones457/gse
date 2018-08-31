@@ -39,6 +39,11 @@ class TeamSheetsController extends Controller
         $teams = [];
         array_push($teams, $team1);
         array_push($teams, $team2);
-        return view('team-sheet', ['teams' => $teams, 'gameweek' => $gameweek]);
+
+        $teamNames = [];
+        for ($i=0; $i < count($teams); $i++) {
+            array_push($teamNames, $teams[$i][count($teams[$i]) - 1]);
+        }
+        return view('team-sheet', ['teams' => $teams, 'gameweek' => $gameweek, 'team_names' => $teamNames]);
     }
 }
