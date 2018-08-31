@@ -10,6 +10,9 @@
     margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (max-width: 530px) {
+        width: 95%;
+    }
 }
 .team-container {
     max-width: 480px;
@@ -98,4 +101,27 @@
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.non-mobile {
+    @media screen and (max-width: 530px) {
+        display: none;
+    }
+}
+
+.mobile {
+    @media screen and (min-width: 530px) {
+        display: none;
+    }
+}
+.mobile-player-container {
+    text-align: center;
+}
+.mobile-name {
+    color: $gseblack;
+    font-size: 24px;
+    font-weight: bold;
+}
+.mobile-position {
+    font-weight: bold;
 }

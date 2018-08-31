@@ -15,3 +15,33 @@
   cursor: pointer;
 }
 
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 736px) {
+  .mobile-main {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  width: 100%;
+  background-color: #000000;
+}
+
+.mobile-link {
+  width: 100%;
+  display: block;
+}
+
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+

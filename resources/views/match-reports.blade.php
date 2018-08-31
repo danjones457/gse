@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'tester')
+@section('title', 'Glyn Street Elite')
 
 @section('styles')
     @parent
