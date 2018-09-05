@@ -50,8 +50,7 @@
 
 @media screen and (max-width: 950px) {
   .subs {
-    bottom: -200px;
-    left: 240px;
+    display: none;
   }
 }
 
