@@ -15,3 +15,31 @@
     padding-left: 1rem;
     cursor: pointer;
 }
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.mobile-main {
+    @media screen and (min-width: 736px) {
+        display: none;
+    }
+}
+.mobile-menu {
+    width: 100%;
+    background-color: $gseblack;
+}
+.mobile-link {
+    width: 100%;
+    display: block;
+}
+
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}

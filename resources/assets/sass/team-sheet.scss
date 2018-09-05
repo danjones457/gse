@@ -10,6 +10,9 @@
     margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
+    @media screen and (max-width: 530px) {
+        width: 95%;
+    }
 }
 .team-container {
     max-width: 480px;
@@ -24,6 +27,23 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+.subs {
+    max-width: 200px;
+    width: 200px;
+    height: 200px;
+    max-height: 200px;
+    background-color: $gseblack;
+    color: $gseyellow;
+    text-align: center;
+    position: absolute;
+    @media screen and (min-width: 950px) {
+        left: -200px;
+    }
+    @media screen and (max-width: 950px) {
+        display: none;
+    }
 }
 
 .player-container {
@@ -98,4 +118,27 @@
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.non-mobile {
+    @media screen and (max-width: 530px) {
+        display: none;
+    }
+}
+
+.mobile {
+    @media screen and (min-width: 530px) {
+        display: none;
+    }
+}
+.mobile-player-container {
+    text-align: center;
+}
+.mobile-name {
+    color: $gseblack;
+    font-size: 24px;
+    font-weight: bold;
+}
+.mobile-position {
+    font-weight: bold;
 }

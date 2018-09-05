@@ -27,9 +27,9 @@ class TeamSheetsController extends Controller
             for ($j=0; $j < count($players); $j++) {
                 if ($teams[$i]->player_id == $players[$j]->id) {
                     if ($teams[$i]->team_id == 1) {
-                        array_push($team1, $players[$j]->lastname);
+                        array_push($team1, $players[$j]);
                     } else {
-                        array_push($team2, $players[$j]->lastname);
+                        array_push($team2, $players[$j]);
                     }
                 }
             }
@@ -40,6 +40,10 @@ class TeamSheetsController extends Controller
         array_push($teams, $team1);
         array_push($teams, $team2);
 
-        return view('team-sheet', ['teams' => $teams, 'gameweek' => $gameweek]);
+        $teamNames = [];
+        for ($i=0; $i < count($teams); $i++) {
+            array_push($teamNames, $teams[$i][count($teams[$i]) - 1]);
+        }
+        return view('team-sheet', ['teams' => $teams, 'gameweek' => $gameweek, 'team_names' => $teamNames]);
     }
 }
