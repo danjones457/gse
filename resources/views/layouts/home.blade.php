@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" ng-app="cashcalc" ng-controller="home">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +39,7 @@
         </div>
         @section('scripts')
             <script src="{{ mix('js/app.js') }}"></script>
+            <script src="{{ mix('js/home.js') }}"></script>
         @show
     </body>
 </html>

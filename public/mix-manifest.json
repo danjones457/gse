@@ -7,5 +7,9 @@
     "/css/player-profile.css": "/css/player-profile.css",
     "/css/team-sheet.css": "/css/team-sheet.css",
     "/css/gameweeks.css": "/css/gameweeks.css",
-    "/js/player-profile.js": "/js/player-profile.js"
+    "/css/news.css": "/css/news.css",
+    "/service-worker.js": "/service-worker.js",
+    "/js/player-profile.js": "/js/player-profile.js",
+    "/js/main.js": "/js/main.js",
+    "/js/home.js": "/js/home.js"
 }

@@ -16,8 +16,11 @@ Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
 Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
 Route::get('/match-reports', 'MatchReportsController@index')->name('match-reports');
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
-Route::get('/news', 'NewsController@index')->name('news');
 
 // Player profile routes
 Route::get('/player-profiles', 'PlayerProfileController@index')->name('player-profiles');
 Route::get('/player-profile/{playerId}', 'PlayerProfileController@player')->name('player-profile');
+
+// News routes
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/news/{newsId}', 'NewsController@getNews');
