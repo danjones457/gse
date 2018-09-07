@@ -43,8 +43,41 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
+            'database' => env('DB_DATABASE', 'cashcalc'),
+            'username' => env('DB_USERNAME', 'cashcalc'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+            'dump' => [
+              'dump_binary_path' => config('app.dump_binary_path')
+            ]
+        ],
+
+        'old' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE_OLD', 'cashcalc'),
+            'username' => env('DB_USERNAME_OLD', 'cashcalc'),
+            'password' => env('DB_PASSWORD_OLD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'mysql-test' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'cashcalc') . '-test',
+            'username' => env('DB_USERNAME', 'cashcalc') . '-test',
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
@@ -77,6 +110,36 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
+
+        'wordpress' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'cashcalc') . '-wordpress',
+            'username' => env('DB_USERNAME', 'cashcalc'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => 'wp_',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'invoices' => [
+          'driver' => env('DB_CONNECTION', 'mysql'),
+          'host' => env('DB_HOST', '127.0.0.1'),
+          'port' => env('DB_PORT', '3306'),
+          'database' => env('INVOICE_DATABASE', 'cashcalc-invoices'),
+          'username' => env('DB_USERNAME', 'cashcalc'),
+          'password' => env('DB_PASSWORD', ''),
+          'unix_socket' => env('DB_SOCKET', ''),
+          'charset' => 'utf8mb4',
+          'collation' => 'utf8mb4_unicode_ci',
+          'prefix' => '',
+          'strict' => false,
+          'engine' => null
+        ]
 
     ],
 

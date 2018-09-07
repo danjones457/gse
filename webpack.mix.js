@@ -11,14 +11,32 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/player-profile.js', 'public/js')
 
-    // Css
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .sass('resources/assets/sass/home.scss', 'public/css')
-   .sass('resources/assets/sass/main.scss', 'public/css')
-   .sass('resources/assets/sass/tester.scss', 'public/css')
-   .sass('resources/assets/sass/player-profile.scss', 'public/css')
-   .sass('resources/assets/sass/team-sheet.scss', 'public/css')
-   .sass('resources/assets/sass/gameweeks.scss', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js')
+    .js('resources/assets/js/service-worker.js', 'public')
+    .js('resources/assets/js/home.js', 'public/js')
+    .js('resources/assets/js/player-profile.js', 'public/js')
+    .js('resources/assets/js/main.js', 'public/js')
+
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/sass/home.scss', 'public/css')
+    .sass('resources/assets/sass/main.scss', 'public/css')
+    .sass('resources/assets/sass/tester.scss', 'public/css')
+    .sass('resources/assets/sass/player-profile.scss', 'public/css')
+    .sass('resources/assets/sass/team-sheet.scss', 'public/css')
+    .sass('resources/assets/sass/gameweeks.scss', 'public/css')
+    .sass('resources/assets/sass/news.scss', 'public/css');
+
+mix.options({
+    postCss: [
+       require('autoprefixer')({
+           grid: true
+       })
+    ]
+});
+
+if (mix.inProduction()) {
+    mix.version();
+} else {
+    // mix.browserSync();
+}

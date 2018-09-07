@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="CashCalc"
+            Version="1.0.0.0"
+            Publisher="CN=CashCalc" />
+  <Properties>
+    <DisplayName>CashCalc</DisplayName>
+    <PublisherDisplayName>CashCa;c</PublisherDisplayName>
+    <Logo>storage/app/public/images/favicon4.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>10.0</OSMinVersion>
+    <OSMaxVersionTested>10.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Applications>
+    <Application Id="a.a" StartPage="public/index.php">
+      <VisualElements DisplayName="CashCalc" Description="Financial planning tools" ForegroundText="dark" BackgroundColor="#d6345f" Logo="storage/app/public/images/favicon4.png" SmallLogo="storage/app/public/images/favicon4.png"></VisualElements>
+    </Application>
+  </Applications>
+</Package>

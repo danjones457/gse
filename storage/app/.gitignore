@@ -1,3 +1,4 @@
-*
-!public/
+calculators/
+net-worth/
+branding/
 !.gitignore
