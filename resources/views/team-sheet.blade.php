@@ -117,7 +117,6 @@
         </div>
     @endforeach
 </div>
-
 @endsection
 
 @section('scripts')

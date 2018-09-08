@@ -1,56 +1,85 @@
+
+/**
+ * We'll load Angular for two-way binding between the data and the DOM, and jQuery
+ * for any legacy items such as Fancybox and noUiSlider which should eventually be
+ * removed. We'll also load dayJS for date manipulation and lodash for array and
+ * collection data massaging.
+ */
 window.angular = require('angular');
+window.jQuery = window.$ = require('jquery');
+window.moment = require('dayjs');
 window._ = require('lodash');
-window.Popper = require('popper.js').default;
 
 /**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
+ * Next we will register the CSRF Token as a common header so that
+ * all outgoing HTTP requests automatically have it attached.
  */
+window._token = document.head.querySelector('meta[name="csrf-token"]').content;
+window.app = angular.module('cashcalc', []);
 
-try {
-    window.$ = window.jQuery = require('jquery');
-
-    require('bootstrap');
-} catch (e) {}
-
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-window.axios = require('axios');
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-let token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        /*navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, (err) => {
+            console.log('ServiceWorker registration failed: ', err);
+        });*/
+    });
 }
 
 /**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
+ * Convert the first charatcer of a string to uppercase.
  */
+ucfirst = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
-// import Echo from 'laravel-echo'
+/**
+ * Get the browser, browser version and platform of the current user.
+ */
+getBrowser = () => {
+    let ua = navigator.userAgent,
+        tem,
+        M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
 
-// window.Pusher = require('pusher-js');
+    if (/trident/i.test(M[1])) {
+        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+        return {name: 'IE', version: (tem[1] || '')};
+    }
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
+    if (M[1] === 'Chrome') {
+        tem = ua.match(/\bOPR|Edge\/(\d+)/)
+        if(tem != null) {return {name: 'Opera', version: tem[1]};}
+    }
+
+    M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+    if ((tem = ua.match(/version\/(\d+)/i)) != null) {M.splice(1, 1, tem[1]);}
+
+    return {
+        name: M[0],
+        version: M[1],
+        platform: navigator.platform
+    };
+};
+
+window.onerror = (msg, url, lineNo, columnNo, error) => {
+    const string = msg.toLowerCase();
+
+    if (string.indexOf("script error") > -1) {
+        console.log('Script Error: See Browser Console for Detail');
+        return false;
+    }
+
+    const request = new XMLHttpRequest();
+    request.open('POST', '/admin/track-js-error', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(JSON.stringify([
+        'Message: ' + msg,
+        'URL: ' + url,
+        'Line: ' + lineNo,
+        'Column: ' + columnNo,
+        'Error object: ' + error,
+        'Browser: ' + JSON.stringify(getBrowser(), null, 2)
+    ]));
+};

@@ -76,7 +76,9 @@ module.exports = __webpack_require__(21);
 /***/ 21:
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\wamp64\\www\\gse\\resources\\assets\\js\\home.js'");
+app.controller('home', ['$scope', function ($scope) {
+    $scope.tester = 'tester';
+}]);
 
 /***/ })
 

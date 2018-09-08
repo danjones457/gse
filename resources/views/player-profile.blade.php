@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main-black')
 
 @section('title', 'Player profiles')
 @section('controller', 'player-profile')

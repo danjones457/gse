@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'GSE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,6 +41,14 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
+    'testing_email' => env('TESTING_EMAIL', 'info@cashcalc.co.uk'),
+
+    'testing_firstname' => env('TESTING_FIRSTNAME', 'Ray'),
+
+    'testing_surname' => env('TESTING_SURNAME', 'Adams'),
+
+    'testing_company_name' => env('TESTING_COMPANY_NAME', 'CashCalc Ltd'),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -52,7 +60,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://cashcalc.co.uk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +86,9 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'gb',
+
+    'locales' => ['gb', 'ie'],
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +101,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'gb',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,6 +120,72 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Logging Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log settings for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Settings: "single", "daily", "syslog", "errorlog"
+    |
+    */
+
+    'log' => env('APP_LOG', 'daily'),
+
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
+    'log_max_files' => 30,
+
+    /*
+    |--------------------------------------------------------------------------
+    | GoCardless Access Token
+    |--------------------------------------------------------------------------
+    |
+    | This is the access token required for the GoCardless API.
+    |
+    */
+
+    'gocardless_access' => env('GOCARDLESS_ACCESS', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Encryption Keys
+    |--------------------------------------------------------------------------
+    |
+    | These are the keys required for certain types of encryption.
+    |
+    */
+
+    'global_encryption_key' => env('GLOBAL_ENCRYPTION_KEY', null),
+
+    'data_capture_encryption_key' => env('DATA_CAPTURE_ENCRYPTION_KEY', null),
+
+    'id_encryption_key' => env('ID_ENCRYPTION_KEY', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Integrations
+    |--------------------------------------------------------------------------
+    |
+    | These are the keys required for the various integrations used in the app.
+    |
+    */
+
+    'io_api_key' => env('IO_API_KEY', null),
+
+    'io_client_id' => env('IO_CLIENT_ID', null),
+
+    'io_client_secret' => env('IO_CLIENT_SECRET', null),
+
+    'transact_provider_key' => env('TRANSACT_PROVIDER_KEY', null),
+
+    'mailchimp_key' => env('MAILCHIMP_KEY', null),
+
+    'dump_binary_path' => env('DUMP_BINARY_PATH', null),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
@@ -125,7 +201,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
-        Illuminate\Broadcasting\BroadcastServiceProvider::class,
+        // Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
@@ -150,6 +226,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Corcel\Laravel\CorcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -159,6 +237,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\LocaleServiceProvider::class,
+        App\Providers\CalculatorServiceProvider::class,
+        App\Providers\PremiumServiceProvider::class,
+        App\Providers\FeatureServiceProvider::class,
 
     ],
 
@@ -182,16 +264,19 @@ return [
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
+        'Calculator' => App\Facades\Calculator::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
+        'Feature' => App\Facades\Feature::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
+        'Locale' => App\Facades\Locale::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
@@ -208,6 +293,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

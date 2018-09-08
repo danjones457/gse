@@ -83,74 +83,341 @@ module.exports = __webpack_require__(17);
 /***/ (function(module, exports, __webpack_require__) {
 
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
+/*
+ * Bootstrap our application by calling the bootstrap partial.
  */
-
 __webpack_require__(2);
+
+/*
+ * Define the root 'app' controller which wraps every page.
+ * This can contain methods for things such as info messages, which are useful on every page.
+ */
+app.controller('app', ['$scope', '$timeout', function ($scope, $timeout) {
+    $scope.Math = Math;
+    $scope.popupOpen = false;
+    $scope.mobileMenuOpen = false;
+    $scope.visiblePopup = '';
+    $scope.popupOptions = {
+        id: null,
+        type: null
+    };
+
+    /**
+     *
+     */
+    $scope.openPopup = function (name) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+        $scope.popupOpen = true;
+        $scope.visiblePopup = name;
+
+        var keys = Object.keys(options);
+        keys.forEach(function (item) {
+            $scope.popupOptions[item] = options[item];
+        });
+    };
+
+    /**
+     *
+     */
+    $scope.closePopup = function () {
+        $scope.popupOpen = false;
+        $scope.visiblePopup = null;
+        $scope.popupOptions = {};
+    };
+
+    /**
+     *
+     */
+    $scope.infoMessage = {
+        visible: false,
+        type: 'info',
+        message: '',
+        timeout: null
+    };
+
+    /**
+     *
+     */
+    $scope.showInfoMessage = function (type, message) {
+        var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+
+        $scope.infoMessage.type = type;
+        $scope.infoMessage.message = message;
+        $scope.infoMessage.visible = true;
+
+        $scope.infoMessage.timeout = $timeout(function () {
+            $scope.infoMessage.visible = false;
+        }, duration);
+    };
+
+    /**
+     *
+     */
+    $scope.replaceState = function (url) {
+        window.history.replaceState({}, "CashCalc", url);
+    };
+
+    /**
+     *
+     */
+    $scope.handleError = function (errorResponse) {
+        console.log("Handling error via app controller");
+        console.log(errorResponse);
+    };
+
+    /**
+     *
+     */
+    $scope.closePopup();
+
+    $scope.openMobileMenu = function () {
+        $scope.mobileMenuOpen = true;
+    };
+    $scope.closeMobileMenu = function () {
+        $scope.mobileMenuOpen = false;
+    };
+    $scope.toggleMobileMenu = function () {
+        $scope.mobileMenuOpen = !$scope.mobileMenuOpen;
+    };
+}]);
+
+app.controller('clientsidebar', ['$scope', function ($scope) {
+    $scope.expanded = {
+        pensions: false,
+        investments: false
+    };
+
+    $scope.toggleRow = function (row) {
+        $scope.expanded[row] = !$scope.expanded[row];
+    };
+}]);
+
+/*
+ * Define a directive for an input[type=number] which gives some improvements on the native browser element.
+ */
+app.directive('number', function () {
+    return {
+        require: '?ngModel',
+        restrict: 'A',
+        link: function link(scope, el, attrs, ngModel) {
+            el.bind('focus', function () {
+                if (el[0].value == '0') el[0].value = '';
+            });
+            el.bind('dblclick', function () {
+                el[0].select();
+            });
+            el.bind('blur', function () {
+                var value = el[0].value;
+
+                // Remove every character which is not a digit, '.' or '-'
+                value = value.replace(/[^\d.-]/g, '');
+
+                // If we are left with an empty string, revert to 0
+                if (value == '') value = '0';
+                el[0].value = value;
+                if (ngModel != null) ngModel.$setViewValue(value);
+            });
+        }
+    };
+});
+
+/*
+ * Define a directive for an input[type=range] which gives some improvements on the native browser element.
+ */
+app.directive('slider', function () {
+    return {
+        restrict: 'E',
+        template: '<input type="range" class="slider" min="0" max="10" step="0.1">',
+        replace: true
+    };
+});
+
+/*
+ * Define a directive for a numeric input alongside a slider.
+ * This gives some improvements on the native browser element.
+ */
+app.directive('sliderInput', function () {
+    return {
+        restrict: 'E',
+        template: "<input type='number' ng-model-options='{updateOn: \"blur\"}' required>",
+        replace: true
+    };
+});
+
+/*
+ * Define a directive for a tooltip, which can then be attached to virtually any element.
+ */
+app.directive('tooltip', function () {
+    return {
+        restrict: 'A',
+        link: function link(scope, el, attrs) {
+            var tool = document.createElement('span');
+            tool.classList.add('tooltip');
+            tool.classList.add('js-tooltip');
+            tool.innerHTML = attrs.tooltip;
+            var toolArrow = document.createElement('span');
+            toolArrow.classList.add('arrow');
+
+            // Expand the width of the tooltip based on the number of characters to be shown.
+            // Always somewhere between 50-250px.
+            tool.style.width = 75 + 175 * (Math.min(tool.innerHTML.length, 50) / 50) + "px";
+
+            el.bind('mouseenter', function () {
+                document.body.appendChild(tool);
+                tool.appendChild(toolArrow);
+                var elRect = el[0].getBoundingClientRect();
+                var toolRect = tool.getBoundingClientRect();
+                var pos = elRect.top - toolRect.height - 7 >= 0 ? 'top' : 'bottom';
+
+                tool.style.top = (pos == 'top' ? elRect.top - toolRect.height - 7 : elRect.top + elRect.height + 7) + 'px';
+
+                tool.style.left = Math.min(Math.max(elRect.left + elRect.width / 2 - toolRect.width / 2, 1), screen.width - toolRect.width - 1) + 'px';
+
+                tool.classList.add('visible');
+
+                var toolRectAfterPlacement = tool.getBoundingClientRect();
+
+                toolArrow.style.left = elRect.left + elRect.width / 2 - toolRectAfterPlacement.left - toolArrow.offsetWidth / 2 + 'px';
+
+                if (pos == 'bottom') {
+                    toolArrow.style.top = '-15px';
+                    toolArrow.style.borderTopColor = 'transparent';
+                    toolArrow.style.borderBottomColor = '#14191e';
+                } else if (pos == 'top') {
+                    toolArrow.style.top = '100%';
+                    toolArrow.style.borderBottomColor = 'transparent';
+                    toolArrow.style.borderTopColor = '#14191e';
+                }
+            });
+            el.bind('mouseleave', function () {
+                var allTooltips = document.querySelectorAll('.js-tooltip');
+                for (var i = 0; i < allTooltips.length; i++) {
+                    document.body.removeChild(allTooltips[i]);
+                };
+            });
+        }
+    };
+});
+
+/*
+ * Directive to be added to a <select> element which is "ng-model"-ing a number rather than a string.
+ * Angular typically wants a string to be used on "ng-model", but if we have a number instead then
+ * we can use this directive on the <select> element.
+ */
+app.directive('numberSelect', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function link(scope, element, attrs, ngModel) {
+            ngModel.$parsers.push(function (val) {
+                return parseInt(val, 10);
+            });
+            ngModel.$formatters.push(function (val) {
+                return '' + val;
+            });
+        }
+    };
+});
+
+/*
+ * Define the 'cookies' controller used to allow the user to accept cookies on marketing and app blades.
+ */
+app.controller('cookies', ['$scope', '$http', function ($scope, $http) {
+    $scope.showCookies = true;
+    $scope.acceptCookies = function () {
+        $http.get('/accept-cookies').then(function (response) {
+            $scope.showCookies = false;
+        });
+    };
+}]);
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/**
+ * We'll load Angular for two-way binding between the data and the DOM, and jQuery
+ * for any legacy items such as Fancybox and noUiSlider which should eventually be
+ * removed. We'll also load dayJS for date manipulation and lodash for array and
+ * collection data massaging.
+ */
 window.angular = __webpack_require__(3);
+window.jQuery = window.$ = __webpack_require__(5);
+window.moment = __webpack_require__(6);
 window._ = __webpack_require__(7);
-window.Popper = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"popper.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())).default;
 
 /**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
+ * Next we will register the CSRF Token as a common header so that
+ * all outgoing HTTP requests automatically have it attached.
  */
+window._token = document.head.querySelector('meta[name="csrf-token"]').content;
+window.app = angular.module('cashcalc', []);
 
-try {
-  window.$ = window.jQuery = __webpack_require__(5);
-
-  __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bootstrap\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-} catch (e) {}
-
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-window.axios = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"axios\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        /*navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, (err) => {
+            console.log('ServiceWorker registration failed: ', err);
+        });*/
+    });
 }
 
 /**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
+ * Convert the first charatcer of a string to uppercase.
  */
+ucfirst = function ucfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
-// import Echo from 'laravel-echo'
+/**
+ * Get the browser, browser version and platform of the current user.
+ */
+getBrowser = function getBrowser() {
+    var ua = navigator.userAgent,
+        tem = void 0,
+        M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
 
-// window.Pusher = require('pusher-js');
+    if (/trident/i.test(M[1])) {
+        tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+        return { name: 'IE', version: tem[1] || '' };
+    }
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
+    if (M[1] === 'Chrome') {
+        tem = ua.match(/\bOPR|Edge\/(\d+)/);
+        if (tem != null) {
+            return { name: 'Opera', version: tem[1] };
+        }
+    }
+
+    M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?'];
+    if ((tem = ua.match(/version\/(\d+)/i)) != null) {
+        M.splice(1, 1, tem[1]);
+    }
+
+    return {
+        name: M[0],
+        version: M[1],
+        platform: navigator.platform
+    };
+};
+
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+    var string = msg.toLowerCase();
+
+    if (string.indexOf("script error") > -1) {
+        console.log('Script Error: See Browser Console for Detail');
+        return false;
+    }
+
+    var request = new XMLHttpRequest();
+    request.open('POST', '/admin/track-js-error', true);
+    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.send(JSON.stringify(['Message: ' + msg, 'URL: ' + url, 'Line: ' + lineNo, 'Column: ' + columnNo, 'Error object: ' + error, 'Browser: ' + JSON.stringify(getBrowser(), null, 2)]));
+};
 
 /***/ }),
 /* 3 */
@@ -44242,7 +44509,13 @@ return jQuery;
 
 
 /***/ }),
-/* 6 */,
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define(e):t.dayjs=e()}(this,function(){"use strict";var t="second",e="minute",n="hour",s="day",r="week",i="month",a="year",u="Sunday.Monday.Tuesday.Wednesday.Thursday.Friday.Saturday".split("."),c="January.February.March.April.May.June.July.August.September.October.November.December".split("."),h=/^(\d{4})-?(\d{2})-?(\d{1,2})$/,o=/Y{2,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}/g,$=function(t,e,n){var s=String(t);return!s||s.length>=e?t:""+Array(e+1-s.length).join(n)+t},d=function(t){return t&&String(t).toLowerCase().replace(/s$/,"")},f=function(t){return void 0===t},l=function(t){var e;return null===t?new Date(NaN):f(t)?new Date:t instanceof Date?t:(e=String(t).match(h))?new Date(e[1],e[2]-1,e[3]):new Date(t)},m=function(){function h(t){this.$d=l(t),this.init()}var m=h.prototype;return m.init=function(){var t,e,n;this.$zone=this.$d.getTimezoneOffset()/60,this.$zoneStr=(t=this.$zone,n="",n=(e=-1*t)>-10&&e<10?"$10$200":"$1$200",$(String(e).replace(/^(.)?(\d)/,n),5,"+")),this.$y=this.$d.getFullYear(),this.$M=this.$d.getMonth(),this.$D=this.$d.getDate(),this.$W=this.$d.getDay(),this.$H=this.$d.getHours(),this.$m=this.$d.getMinutes(),this.$s=this.$d.getSeconds(),this.$ms=this.$d.getMilliseconds()},m.isValid=function(){return!("Invalid Date"===this.$d.toString())},m.isLeapYear=function(){return this.$y%4==0&&this.$y%100!=0||this.$y%400==0},m.isSame=function(t){return this.valueOf()===t.valueOf()},m.isBefore=function(t){return this.valueOf()<t.valueOf()},m.isAfter=function(t){return this.valueOf()>t.valueOf()},m.year=function(){return this.$y},m.month=function(){return this.$M},m.day=function(){return this.$W},m.date=function(){return this.$D},m.hour=function(){return this.$H},m.minute=function(){return this.$m},m.second=function(){return this.$s},m.millisecond=function(){return this.$ms},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(u,c){var o=this,$=!!f(c)||c,l=function(t,e,n){void 0===n&&(n=o.$y);var r=new h(new Date(n,e,t));return $?r:r.endOf(s)},m=function(t,e){return new h(o.toDate()[t].apply(o.toDate(),$?[0,0,0,0].slice(e):[23,59,59,999].slice(e)))};switch(d(u)){case a:return $?l(1,0):l(31,11,this.$y);case i:return $?l(1,this.$M):l(0,this.$M+1,this.$y);case r:return $?l(this.$D-this.$W,this.$M):l(this.$D+(6-this.$W),this.$M,this.$y);case s:case"date":return m("setHours",0);case n:return m("setMinutes",1);case e:return m("setSeconds",2);case t:return m("setMilliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.mSet=function(s,r){switch(d(s)){case"date":this.$d.setDate(r);break;case i:this.$d.setMonth(r);break;case a:this.$d.setFullYear(r);break;case n:this.$d.setHours(r);break;case e:this.$d.setMinutes(r);break;case t:this.$d.setSeconds(r);break;case"millisecond":this.$d.setMilliseconds(r)}return this.init(),this},m.set=function(t,e){return n=e,Number.isNaN(parseFloat(n))||!Number.isFinite(n)?this:this.clone().mSet(t,e);var n},m.add=function(t,u){var c,o=u&&1===u.length?u:d(u);if(["M",i].indexOf(o)>-1){var $=this.set("date",1).set(i,this.$M+t);return $=$.set("date",Math.min(this.$D,$.daysInMonth()))}if(["y",a].indexOf(o)>-1)return this.set(a,this.$y+t);switch(o){case"m":case e:c=6e4;break;case"h":case n:c=36e5;break;case"d":case s:c=864e5;break;case"w":case r:c=6048e5;break;default:c=1e3}return new h(this.valueOf()+t*c)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this;return(t||"YYYY-MM-DDTHH:mm:ssZ").replace(o,function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return String(e.$y);case"M":return String(e.$M+1);case"MM":return $(e.$M+1,2,"0");case"MMM":return c[e.$M].slice(0,3);case"MMMM":return c[e.$M];case"D":return String(e.$D);case"DD":return $(e.$D,2,"0");case"d":return String(e.$W);case"dddd":return u[e.$W];case"H":return String(e.$H);case"HH":return $(e.$H,2,"0");case"h":case"hh":return 0===e.$H?12:$(e.$H<13?e.$H:e.$H-12,"hh"===t?2:1,"0");case"a":return e.$H<12?"am":"pm";case"A":return e.$H<12?"AM":"PM";case"m":return String(e.$m);case"mm":return $(e.$m,2,"0");case"s":return String(e.$s);case"ss":return $(e.$s,2,"0");case"Z":return e.$zoneStr.slice(0,-2)+":00";default:return e.$zoneStr}})},m.diff=function(e,n,u){var c,o,$,f,l,m,M=d(n),y=e instanceof h?e:new h(e),S=this-y,g=(c=this,f=12*((o=y).year()-c.year())+(o.month()-c.month()),l=c.clone().add(f,"months"),$=o-l<0?(o-l)/(l-c.clone().add(f-1,"months")):(o-l)/(c.clone().add(f+1,"months")-l),Number(-(f+$)));switch(M){case a:g/=12;break;case i:break;case"quarter":g/=3;break;case r:g=S/6048e5;break;case s:g=S/864e5;break;case t:g=S/1e3;break;default:g=S}return u?g:(m=g)<0?Math.ceil(m)||0:Math.floor(m)},m.daysInMonth=function(){return this.endOf(i).$D},m.clone=function(){return new h(this)},m.toDate=function(){return new Date(this.$d)},m.toArray=function(){return[this.$y,this.$M,this.$D,this.$H,this.$m,this.$s,this.$ms]},m.toJSON=function(){return this.toISOString()},m.toISOString=function(){return this.toDate().toISOString()},m.toObject=function(){return{years:this.$y,months:this.$M,date:this.$D,hours:this.$H,minutes:this.$m,seconds:this.$s,milliseconds:this.$ms}},m.toString=function(){return this.$d.toUTCString()},h}();return function(t){return new m(t)}});
+
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61456,7 +61729,7 @@ module.exports = function(module) {
 /* 17 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: ENOENT: no such file or directory, open 'C:\\wamp64\\www\\gse\\resources\\assets\\sass\\news.scss'\n    at runLoaders (C:\\wamp64\\www\\gse\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\wamp64\\www\\gse\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\wamp64\\www\\gse\\node_modules\\loader-runner\\lib\\LoaderRunner.js:200:19\n    at C:\\wamp64\\www\\gse\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:70:14\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\n    at process._tickCallback (internal/process/next_tick.js:180:9)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
