@@ -20,7 +20,7 @@
             <link rel="stylesheet" href="{{ mix('css/main.css') }}" type="text/css">
         @show
     </head>
-    <body>
+    <body style="background-color: #000000">
         <div class="header-links">
             <a href="/team-sheets" class="link link-yellow header-link">Team sheets</a>
             <a href="/match-reports" class="link link-yellow header-link">Match reports</a>

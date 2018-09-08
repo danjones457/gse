@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main-black')
 
 @section('title', 'Glyn Street Elite')
 
