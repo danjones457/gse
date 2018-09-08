@@ -77,7 +77,7 @@ module.exports = __webpack_require__(25);
 /***/ (function(module, exports) {
 
 app.controller('main', ['$scope', function ($scope) {
-    $scope.tester = 'tester';
+    $scope.expand = false;
 }]);
 
 /***/ })

@@ -49,13 +49,13 @@
             <div class="subs col-md-2 non-mobile">
                 <h3 class="text-yellow">Substitutes</h3>
                 @if(isset($team[7]->lastname))
-                    <span>{{ $team[7]->lastname }}</span>
+                    <span>{{ $team[7]->lastname }}</span><br>
                 @endif
                 @if(isset($team[8]->lastname))
-                    <span>{{ $team[8]->lastname }}</span>
+                    <span>{{ $team[8]->lastname }}</span><br>
                 @endif
                 @if(isset($team[9]->lastname))
-                    <span>{{ $team[9]->lastname }}</span>
+                    <span>{{ $team[9]->lastname }}</span><br>
                 @endif
             </div>
             @endif
@@ -120,5 +120,5 @@
 @endsection
 
 @section('scripts')
-
+    @parent
 @endsection

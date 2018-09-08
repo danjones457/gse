@@ -8,6 +8,7 @@
   margin-bottom: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
+  text-align: center;
 }
 
 .card-container:hover {
@@ -17,7 +18,9 @@
 
 @media screen and (max-width: 530px) {
   .card-container {
-    height: 78px !important;
+    height: 100px !important;
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 }
 

@@ -20,13 +20,27 @@
             <link rel="stylesheet" href="{{ mix('css/main.css') }}" type="text/css">
         @show
     </head>
-    <body style="background-color: #000000">
-        <div class="header-links">
+    <body ng-controller="@yield('controller', 'app')" style="background-color: #000000">
+        <div class="header-links hide-mobile">
             <a href="/team-sheets" class="link link-yellow header-link">Team sheets</a>
             <a href="/match-reports" class="link link-yellow header-link">Match reports</a>
             <a href="/match-highlights" class="link link-yellow header-link">Match highlights</a>
             <a href="/news" class="link link-yellow header-link">News</a>
             <a href="/player-profiles" class="link link-yellow header-link">Player profiles</a>
+        </div>
+        <div class="mobile-menu show-mobile">
+            <div class="pl1 fz30 flex">
+                <div ng-click="expand = !expand">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="mobile-menu-container" ng-show="expand">
+                <a href="/team-sheets" class="link link-yellow mobile-link">Team sheets</a>
+                <a href="/match-reports" class="link link-yellow mobile-link">Match reports</a>
+                <a href="/match-highlights" class="link link-yellow mobile-link">Match highlights</a>
+                <a href="/news" class="link link-yellow mobile-link">News</a>
+                <a href="/player-profiles" class="link link-yellow mobile-link">Player profiles</a>
+            </div>
         </div>
         @section('content')
 

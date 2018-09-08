@@ -1,7 +1,7 @@
 {
-    "name": "CashCalc/cashcalc",
-    "description": "CashCalc",
-    "keywords": ["cashcalc", "laravel"],
+    "name": "CashCalcDaniel/gse",
+    "description": "GSE",
+    "keywords": ["gse", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {

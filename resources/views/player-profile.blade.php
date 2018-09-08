@@ -1,7 +1,6 @@
 @extends('layouts.main-black')
 
 @section('title', 'Player profiles')
-@section('controller', 'player-profile')
 
 @section('styles')
     @parent
@@ -28,5 +27,6 @@
 @endsection
 
 @section('scripts')
+    @parent
     <script src="{{ mix('js/player-profile.js') }}"></script>
 @endsection

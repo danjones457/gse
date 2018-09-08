@@ -35,3 +35,14 @@ html, body {
 }
 
 a {color: $gseyellow;}
+
+.hide-mobile {
+    @media screen and (max-width: 720px) {
+        display: none;
+    }
+}
+.show-mobile {
+    @media screen and (min-width: 721px) {
+        display: none;
+    }
+}

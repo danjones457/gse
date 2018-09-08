@@ -41,13 +41,13 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
-    'testing_email' => env('TESTING_EMAIL', 'info@cashcalc.co.uk'),
+    'testing_email' => env('TESTING_EMAIL', 'danjones@glynstreetelite.co.uk'),
 
-    'testing_firstname' => env('TESTING_FIRSTNAME', 'Ray'),
+    'testing_firstname' => env('TESTING_FIRSTNAME', 'Dan'),
 
-    'testing_surname' => env('TESTING_SURNAME', 'Adams'),
+    'testing_surname' => env('TESTING_SURNAME', 'Jones'),
 
-    'testing_company_name' => env('TESTING_COMPANY_NAME', 'CashCalc Ltd'),
+    'testing_company_name' => env('TESTING_COMPANY_NAME', 'GSE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://cashcalc.co.uk'),
+    'url' => env('APP_URL', 'https://glynstreetelite.co.uk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -136,17 +136,6 @@ return [
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
     'log_max_files' => 30,
-
-    /*
-    |--------------------------------------------------------------------------
-    | GoCardless Access Token
-    |--------------------------------------------------------------------------
-    |
-    | This is the access token required for the GoCardless API.
-    |
-    */
-
-    'gocardless_access' => env('GOCARDLESS_ACCESS', null),
 
     /*
     |--------------------------------------------------------------------------

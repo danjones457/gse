@@ -32,25 +32,23 @@
     cursor: pointer;
 }
 
-.mobile-main {
-    @media screen and (min-width: 736px) {
-        display: none;
-    }
-}
 .mobile-menu {
-    width: 100%;
     background-color: $gseblack;
+    color: $gseyellow;
 }
 .mobile-link {
     width: 100%;
     display: block;
+    font-size: 25px;
 }
-
-.mobile-container {
-  max-width: 480px;
-  margin: auto;
-  background-color: #555;
-  height: 500px;
-  color: white;
-  border-radius: 10px;
+.mobile-menu-container {
+    padding-top: 45%;
+    width: 100%;
+    height: 100%;
+    background-color: $gseblack;
+    color: $gseyellow;
+    position: fixed;
+    top: 45px;
+    bottom: 0;
+    text-align: center;
 }

@@ -10,11 +10,14 @@
     margin-bottom: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
+    text-align: center;
     &:hover {
         box-shadow: 0 0 3px #525252;
     }
     @media screen and (max-width: 530px) {
-        height: 78px !important;
+        height: 100px !important;
+        padding-left: .5rem;
+        padding-right: .5rem;
     }
 }
 

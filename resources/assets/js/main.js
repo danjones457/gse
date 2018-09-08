@@ -1,3 +1,3 @@
 app.controller('main', ['$scope', ($scope) => {
-    $scope.tester = 'tester';
+    $scope.expand = false;
 }]);
