@@ -10,17 +10,11 @@ self.addEventListener('push', function(event) {
 
     const options = {
         body: bodyText,
-        icon: 'https://cashcalc.co.uk/storage/images/CCLogo.jpg',
-        badge: 'https://cashcalc.co.uk/storage/images/CCLogo.jpg',
     };
 
     event.waitUntil(self.registration.showNotification(title,options));
 });
 
-self.addEventListener('notificationclick', function(event) {
-    event.notification.close();
-    event.waitUntil(clients.openWindow('https://cashcalc.co.uk/dashboard'));
-});
 
 // function updateStaticCache() {
 //     return caches.open(version + staticCacheName).then(function(e) {

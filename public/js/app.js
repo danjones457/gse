@@ -155,7 +155,7 @@ app.controller('app', ['$scope', '$timeout', function ($scope, $timeout) {
      *
      */
     $scope.replaceState = function (url) {
-        window.history.replaceState({}, "CashCalc", url);
+        window.history.replaceState({}, "GSE", url);
     };
 
     /**
@@ -353,7 +353,7 @@ window._ = __webpack_require__(7);
  * all outgoing HTTP requests automatically have it attached.
  */
 window._token = document.head.querySelector('meta[name="csrf-token"]').content;
-window.app = angular.module('cashcalc', []);
+window.app = angular.module('gse', []);
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {

@@ -8,6 +8,9 @@
 @endsection
 
 @section('content')
+    <div class="">
+        <a class="btn ml1 mt1 clickable" href="/news"><i class="fa fa-chevron-left" aria-hidden="true"></i>&ThickSpace;&ThickSpace;Back to news</a>
+    </div>
     <div class="news-article">
         <div class="title">
             {{ $article->title }}

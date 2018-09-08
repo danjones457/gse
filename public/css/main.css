@@ -6,7 +6,9 @@
   font-weight: normal;
   letter-spacing: .1rem;
   text-transform: uppercase;
-  border-bottom: 3px solid #f4ff2a;
+  background: -webkit-gradient(linear, right top, left top, from(#ff3400), color-stop(50%, #f4ff2a), to(#ff3400)) left bottom #000000 no-repeat;
+  background: linear-gradient(to left, #ff3400 0%, #f4ff2a 50%, #ff3400 100%) left bottom #000000 no-repeat;
+  background-size: 100% 3px;
 }
 
 .header-link {

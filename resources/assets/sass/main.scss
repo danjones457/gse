@@ -8,7 +8,18 @@
     font-weight: normal;
     letter-spacing: .1rem;
     text-transform: uppercase;
-    border-bottom: 3px solid $gseyellow;
+    background:
+        linear-gradient(
+            to left,
+            #ff3400 0%,
+            $gseyellow 50%,
+            #ff3400 100%
+        )
+        left
+        bottom
+        $gseblack
+        no-repeat;
+    background-size:100% 3px;
 }
 .header-link {
     padding-right: 1rem;

@@ -67,7 +67,7 @@ app.controller('app', ['$scope', '$timeout', ($scope, $timeout) => {
      *
      */
     $scope.replaceState = (url) => {
-        window.history.replaceState({}, "CashCalc", url);
+        window.history.replaceState({}, "GSE", url);
     };
 
     /**

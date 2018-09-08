@@ -15,7 +15,7 @@ window._ = require('lodash');
  * all outgoing HTTP requests automatically have it attached.
  */
 window._token = document.head.querySelector('meta[name="csrf-token"]').content;
-window.app = angular.module('cashcalc', []);
+window.app = angular.module('gse', []);
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
