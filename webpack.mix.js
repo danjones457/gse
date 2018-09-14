@@ -25,7 +25,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/player-profile.scss', 'public/css')
     .sass('resources/assets/sass/team-sheet.scss', 'public/css')
     .sass('resources/assets/sass/gameweeks.scss', 'public/css')
-    .sass('resources/assets/sass/news.scss', 'public/css');
+    .sass('resources/assets/sass/news.scss', 'public/css')
+    .sass('resources/assets/sass/stats.scss', 'public/css');
 
 mix.options({
     postCss: [

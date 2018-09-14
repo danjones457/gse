@@ -24,3 +24,5 @@ Route::get('/player-profile/{playerId}', 'PlayerProfileController@player')->name
 // News routes
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/news/{newsId}', 'NewsController@getNews');
+
+Route::get('/stats', 'StatsController@index')->name('stats');

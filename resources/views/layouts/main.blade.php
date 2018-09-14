@@ -36,6 +36,7 @@
             <a href="/match-highlights" class="link link-yellow header-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Match highlights</a>
             <a href="/news" class="link link-yellow header-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
             <a href="/player-profiles" class="link link-yellow header-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Player profiles</a>
+            <a href="/stats" class="link link-yellow header-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>
         </div>
         <div class="mobile-menu show-mobile">
             <div class="pl1 fz30 flex">
@@ -49,6 +50,7 @@
                 <a href="/match-highlights" class="link link-yellow mobile-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Match highlights</a>
                 <a href="/news" class="link link-yellow mobile-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
                 <a href="/player-profiles" class="link link-yellow mobile-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Player profiles</a>
+                <a href="/stats" class="link link-yellow mobile-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>
             </div>
         </div>
         @section('content')

@@ -43,6 +43,7 @@
                     <a href="/match-highlights" class="link home-link pl1 pr1 fz20">Match highlights</a>
                     <a href="/news" class="link home-link pl1 pr1 fz20">News</a>
                     <a href="/player-profiles" class="link home-link pl1 pr1 fz20">Player profiles</a>
+                    <a href="/stats" class="link home-link pl1 pr1 fz20">Stats</a>
                 </div>
             </div>
         </div>
