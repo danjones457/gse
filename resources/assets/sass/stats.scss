@@ -1,1 +1,7 @@
 @import 'partial/variables';
+
+.stats-container {
+    @media screen and (max-width: 1205px) {
+        flex-direction: column;
+    }
+}

@@ -37,12 +37,12 @@ html, body {
 a {color: $gseyellow;}
 
 .hide-mobile {
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: 1205px) {
         display: none;
     }
 }
 .show-mobile {
-    @media screen and (min-width: 721px) {
+    @media screen and (min-width: 1206px) {
         display: none;
     }
 }

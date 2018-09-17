@@ -4279,13 +4279,13 @@ a {
   color: #f4ff2a;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1205px) {
   .hide-mobile {
     display: none;
   }
 }
 
-@media screen and (min-width: 721px) {
+@media screen and (min-width: 1206px) {
   .show-mobile {
     display: none;
   }
