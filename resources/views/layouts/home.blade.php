@@ -38,8 +38,7 @@
                     <img src="{{ asset('images/largerGSELogo.jpg') }}" alt="GSE Logo" class="border-radius-50p pb1 gse-logo">
                 </div>
                 <div class="links home-links">
-                    <a href="/team-sheets" class="link home-link pl1 pr1 fz20">Team sheets</a>
-                    <a href="/match-reports" class="link home-link pl1 pr1 fz20">Match reports</a>
+                    <a href="/league-table" class="link home-link pl1 pr1 fz20">League Table</a>
                     <a href="/match-highlights" class="link home-link pl1 pr1 fz20">Match highlights</a>
                     <a href="/news" class="link home-link pl1 pr1 fz20">News</a>
                     <a href="/player-profiles" class="link home-link pl1 pr1 fz20">Player profiles</a>

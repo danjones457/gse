@@ -12,9 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
-Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
-Route::get('/match-reports', 'MatchReportsController@index')->name('match-reports');
+// Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
+// Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
+Route::get('/league-table', 'MatchReportsController@index')->name('match-reports');
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
 
 // Player profile routes

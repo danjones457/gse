@@ -12,7 +12,7 @@
 @foreach($player as $player)
 <div class="profile-container flex flex-wrap-wrap">
     <div class="pl1 pt1 pr1 col-lg-4 profile-image-container">
-        <img src="{{ asset('images/Final/'.$player->photo_url.'.jpg') }}" alt="" class="border-radius-50p profile-image">
+        <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="border-radius-50p profile-image">
     </div>
     <div class="p1 mla profile-text">
         <span class="fz55">{{ $player->firstname}} {{ $player->lastname }} @if($player->shirt_number != null)#{{ $player->shirt_number }}@endif</span><br>

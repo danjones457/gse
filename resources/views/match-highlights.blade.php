@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <iframe class="mla mra" width="100%" height="720" src="https://www.youtube.com/embed/NAsaHR_qDe8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/r_Uk7wOxQJc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 @endsection
 
 @section('scripts')
