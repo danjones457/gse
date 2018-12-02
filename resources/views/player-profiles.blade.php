@@ -10,8 +10,8 @@
 @section('content')
 
 @foreach($players as $player)
-    <div class="card-container">
-        <a href="/player-profile/{{ $player->id }}">
+    <div class="card-container flex">
+        <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
             <!-- Photo -->
             <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="border-radius-50p card-image"><br>
             <!-- Name -->
