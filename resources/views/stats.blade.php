@@ -1,6 +1,6 @@
 @extends('layouts.main-black')
 
-@section('title', 'Player profiles')
+@section('title', 'Stats')
 
 @section('styles')
     @parent

@@ -36,15 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             // \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\UserImpersonation::class,
-            \App\Http\Middleware\VerifyEmailAddress::class,
-            \App\Http\Middleware\PreventConcurrentLogins::class,
             \App\Http\Middleware\Language::class,
-        ],
-
-        'api' => [
-            'throttle:60,1',
-            'bindings',
         ],
     ];
 
@@ -57,22 +49,9 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'premium' => \App\Http\Middleware\Premium::class,
-        'admin' => \App\Http\Middleware\Admin::class,
-        'groupAdmin' => \App\Http\Middleware\GroupAdmin::class,
-        'networkAdmin' => \App\Http\Middleware\NetworkAdmin::class,
-        'clientAccessible' => \App\Http\Middleware\VerifyClientAccessible::class,
-        'admin' => \App\Http\Middleware\Admin::class,
-        'superAdmin' => \App\Http\Middleware\SuperAdmin::class,
-        'regionAdmin' => \App\Http\Middleware\RegionAdmin::class,
-        'api.v2' => \App\Http\Middleware\APIV2::class,
-        'presentationModeOnly' => \App\Http\Middleware\PresentationModeOnly::class,
-        'adviserModeOnly' => \App\Http\Middleware\AdviserModeOnly::class,
-        'feature' => \App\Http\Middleware\Feature::class,
     ];
 }

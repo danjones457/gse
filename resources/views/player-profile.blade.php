@@ -21,6 +21,38 @@
         <span class="fz20">Bio: {{ $player->description }}</span><br>
         <span class="fz20">Quote: {{ $player->quote }}</span><br>
     </div>
+    <div class="p1 flex">
+        <div class="pr1">
+            @if($awards != [])
+                <span class="fz25 tdu">Awards</span>
+                @foreach($awards as $award)
+                    <div class="">
+                        <span>{{ $award->award }}</span>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+        <div class="pl1">
+            @if($stats != [])
+                <span class="fz25 tdu">Stats</span><br>
+                @if($stats[0]->goals != null)
+                    <span>Goals: </span><span>{{ $stats[0]->goals }}</span><br>
+                @endif
+                @if($stats[0]->assists != null)
+                    <span>Assists: </span><span>{{ $stats[0]->assists }}</span><br>
+                @endif
+                @if($stats[0]->clean_sheets != null)
+                    <span>Clean sheets: </span><span>{{ $stats[0]->clean_sheets }}</span><br>
+                @endif
+                @if($stats[0]->yellow_cards != null)
+                    <span>Yellow cards: </span><span>{{ $stats[0]->yellow_cards }}</span><br>
+                @endif
+                @if($stats[0]->red_cards != null)
+                    <span>Red cards: </span><span>{{ $stats[0]->red_cards }}</span><br>
+                @endif
+            @endif
+        </div>
+    </div>
 </div>
 @endforeach
 

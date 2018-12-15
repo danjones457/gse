@@ -14,10 +14,14 @@ class PlayerProfileController extends Controller
         return view('player-profiles', ['players' => $players]);
     }
 
-    public function player($player)
+    public function player($playerId)
     {
-        $player = DB::table('players')->where('id', $player)->get();
+        $player = DB::table('players')->where('id', $playerId)->get();
 
-        return view('player-profile', ['player' => $player]);
+        $awards = DB::table('awards')->where('player_id', $playerId)->get();
+
+        $stats = DB::table('stats')->where('player_id', $playerId)->get();
+
+        return view('player-profile', ['player' => $player, 'awards' => $awards->first() == [] ? [] : $awards, 'stats' => $stats->first() == [] ? [] : $stats]);
     }
 }
