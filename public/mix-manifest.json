@@ -10,6 +10,7 @@
     "/css/news.css": "/css/news.css",
     "/css/awards.css": "/css/awards.css",
     "/css/stats.css": "/css/stats.css",
+    "/css/match-highlights.css": "/css/match-highlights.css",
     "/service-worker.js": "/service-worker.js",
     "/js/player-profile.js": "/js/player-profile.js",
     "/js/main.js": "/js/main.js",

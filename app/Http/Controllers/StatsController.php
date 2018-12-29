@@ -20,6 +20,7 @@ class StatsController extends Controller
         $players = DB::table('players')->select('id', 'firstname', 'lastname')->get();
 
         $season = $request->season != 'all-time' ? [$request->season] : [1, 2];
+        $seasonReturn = $request->season != 'all-time' ? 'Season '.$request->season : 'All time';
 
         $goalscorers = $this->getStat('goals', $season);
         $keepers = $this->getStat('clean_sheets', $season);
@@ -72,7 +73,7 @@ class StatsController extends Controller
             }
         }
 
-        return view('stats', ["goalscorers" => $goalScorersReturn, "keepers" => $keepersReturn, "assists" => $assistsReturn, "yellow_cards" => $yellowCardsReturn, "red_cards" => $redCardsReturn]);
+        return view('stats', ["goalscorers" => $goalScorersReturn, "keepers" => $keepersReturn, "assists" => $assistsReturn, "yellow_cards" => $yellowCardsReturn, "red_cards" => $redCardsReturn, "season" => $seasonReturn]);
     }
 
     public function getStat($stat, $season)

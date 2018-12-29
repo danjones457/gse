@@ -9,6 +9,9 @@
 
 @section('content')
 
+<div class="tac">
+    <span class="tdu fz30 text-yellow">{{ $season }} stats</span>
+</div>
 <div class="w100p flex">
     <div class="flex stats-container mla mra">
         @if(count($goalscorers) > 0)

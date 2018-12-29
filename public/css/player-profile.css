@@ -1,19 +1,10 @@
 .card-container {
-  background-color: #000000;
-  max-width: 300px;
-  width: 300px;
-  border-radius: 15px;
+  max-width: 400px;
+  width: 400px;
+  max-height: 300px;
+  height: 300px;
   float: left;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
   text-align: center;
-}
-
-.card-container:hover {
-  -webkit-box-shadow: 0 0 3px #525252;
-          box-shadow: 0 0 3px #525252;
 }
 
 @media screen and (max-width: 530px) {
@@ -23,20 +14,36 @@
   }
 }
 
+.card-container:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .card-image {
-  max-width: calc(100% - 100px);
+  max-width: 100%;
   display: block;
-  margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.card-image:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
 }
 
 .card-name {
-  display: block;
+  position: relative;
+  top: -146px;
+  left: -113px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  color: #f4ff2a;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .profile-container {

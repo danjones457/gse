@@ -9,16 +9,20 @@
 
 @section('content')
 
-@foreach($players as $player)
-    <div class="card-container flex">
-        <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
-            <!-- Photo -->
-            <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="border-radius-50p card-image"><br>
-            <!-- Name -->
-            <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
-        </a>
+<div class="flex ">
+    <div style="padding-top: 40px; margin-left: auto; margin-right: auto; width: 1600px">
+        @foreach($players as $player)
+            <div class="card-container flex">
+                <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
+                    <!-- Photo -->
+                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
+                    <!-- Name -->
+                    <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
+                </a>
+            </div>
+        @endforeach
     </div>
-@endforeach
+</div>
 
 @endsection
 

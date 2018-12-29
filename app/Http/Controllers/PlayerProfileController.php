@@ -20,7 +20,7 @@ class PlayerProfileController extends Controller
 
         $awards = DB::table('awards')->where('player_id', $playerId)->get();
 
-        $stats = DB::table('stats')->where('player_id', $playerId)->get();
+        $stats = DB::table('stats')->where('player_id', $playerId)->where('season', 2)->get();
 
         return view('player-profile', ['player' => $player, 'awards' => $awards->first() == [] ? [] : $awards, 'stats' => $stats->first() == [] ? [] : $stats]);
     }
