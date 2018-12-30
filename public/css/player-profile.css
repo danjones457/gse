@@ -5,6 +5,8 @@
   height: 300px;
   float: left;
   text-align: center;
+  z-index: 0;
+  position: relative;
 }
 
 @media screen and (max-width: 530px) {
@@ -17,6 +19,7 @@
 .card-container:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  z-index: 100;
 }
 
 .card-image {
@@ -35,20 +38,9 @@
           filter: grayscale(0%);
 }
 
-.card-image-sam {
-  max-width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
 .card-name {
   position: relative;
-  top: -146px;
+  top: -180px;
   left: -113px;
   margin-left: auto;
   margin-right: auto;

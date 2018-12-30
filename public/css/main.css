@@ -25,6 +25,7 @@
 .mobile-menu {
   background-color: #000000;
   color: #f4ff2a;
+  z-index: 1000;
 }
 
 .mobile-link {
@@ -34,7 +35,8 @@
 }
 
 .mobile-menu-container {
-  padding-top: 45%;
+  z-index: 1000;
+  padding-top: 20px;
   width: 100%;
   height: 100%;
   background-color: #000000;
@@ -43,5 +45,12 @@
   top: 45px;
   bottom: 0;
   text-align: center;
+}
+
+.fix {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 

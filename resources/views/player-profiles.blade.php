@@ -15,11 +15,7 @@
             <div class="card-container flex">
                 <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
                     <!-- Photo -->
-                    @if($player->photo_url == "sambrian")
-                        <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image-sam"><br>
-                    @else
-                        <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
-                    @endif
+                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
                     <!-- Name -->
                     <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
                 </a>
