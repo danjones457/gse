@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 // Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
 // Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
-Route::get('/league-table', 'MatchReportsController@index')->name('match-reports');
+Route::get('/league-table', 'LeagueController@index')->name('league-table');
 
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
 Route::get('/match-highlights/{team}', 'MatchHighlightsController@seasons');
