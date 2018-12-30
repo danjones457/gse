@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Glyn Street Elite')
+@section('title', 'GSE | Highlights')
 
 @section('styles')
     @parent

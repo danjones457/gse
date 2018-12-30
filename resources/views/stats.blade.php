@@ -1,6 +1,6 @@
 @extends('layouts.main-black')
 
-@section('title', 'Stats')
+@section('title', 'GSE | Stats')
 
 @section('styles')
     @parent

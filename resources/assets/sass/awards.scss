@@ -7,6 +7,9 @@
     text-align: center;
     z-index: 0;
     position: relative;
+    @media screen and (max-width: 620px) {
+        width: 95%;
+    }
 }
 
 .award-photo {
@@ -14,10 +17,21 @@
     display: block;
     margin-left:auto;
     margin-right: auto;
+    @media screen and (max-width: 620px) {
+        width: 80%;
+    }
 }
 
 .awards {
     margin-left:auto;
     margin-right: auto;
     text-align: center;
+}
+
+.large-award-container {
+    padding-top: 40px;
+    width: 1800px;
+    @media screen and (max-width: 1816px) {
+        padding-left: 2rem;
+    }
 }

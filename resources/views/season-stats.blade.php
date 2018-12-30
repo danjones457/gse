@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Player profiles')
+@section('title', 'GSE | Stats')
 
 @section('styles')
     @parent

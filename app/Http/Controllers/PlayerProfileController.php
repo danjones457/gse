@@ -10,8 +10,9 @@ class PlayerProfileController extends Controller
     public function index()
     {
         $players = DB::table('players')->get();
+        $ogPlayers = DB::table('og_players')->get();
 
-        return view('player-profiles', ['players' => $players]);
+        return view('player-profiles', ['players' => $players, 'ogPlayers' => $ogPlayers]);
     }
 
     public function player($playerId)

@@ -1,6 +1,6 @@
 @extends('layouts.main-black')
 
-@section('title', 'Awards')
+@section('title', 'GSE | Awards')
 
 @section('styles')
     @parent
@@ -10,7 +10,7 @@
 @section('content')
 
 <div class="flex">
-    <div class="mla mra" style="padding-top: 40px; width: 1800px">
+    <div class="mla mra large-award-container">
         @foreach($awards as $award)
             <div class="tac pt1 award-container flex">
                 <div class="w50p tar">
