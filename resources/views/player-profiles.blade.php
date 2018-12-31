@@ -29,7 +29,7 @@
         <h1 class="pb2 fz40 tac">Previous players</h1>
         @foreach($ogPlayers as $player)
             <div class="card-container flex">
-                <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
+                <a style="width:100%;height:100%">
                     <!-- Photo -->
                     <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
                     <!-- Name -->
