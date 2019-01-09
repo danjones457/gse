@@ -16,7 +16,7 @@
             <div class="card-container flex">
                 <a style="width:100%;height:100%" href="/player-profile/{{ $player->id }}">
                     <!-- Photo -->
-                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
+                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="{{$player->firstname}}'s player photo'" class="card-image"><br>
                     <!-- Name -->
                     <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
                 </a>
@@ -31,7 +31,7 @@
             <div class="card-container flex">
                 <a style="width:100%;height:100%">
                     <!-- Photo -->
-                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="card-image"><br>
+                    <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="{{$player->firstname}}'s player photo'" class="card-image"><br>
                     <!-- Name -->
                     <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
                 </a>
