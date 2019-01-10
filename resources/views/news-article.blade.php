@@ -19,7 +19,7 @@
             {{ $article->header }}
         </div>
         <div class="body">
-            {{ $article->body }}
+            {!! $article->body !!}
         </div>
     </div>
 @endsection
