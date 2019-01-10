@@ -37,7 +37,7 @@
                     <!-- Photo -->
                     <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="{{$player->firstname}}'s player photo'" class="card-image"><br>
                     <!-- Name -->
-                    <span class="card-name fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
+                    <span class="card-name-black fz20">{{ $player->firstname }} {{ $player->lastname }}</span><br>
                 </a>
             </div>
         @endforeach
