@@ -34,26 +34,67 @@
                 @endforeach
             @endif
         </div>
-        <div class="other pl1 fz20">
-            @if($stats != [])
-                <span class="fz25 tdu">Stats</span><br>
-                @if($stats[0]->goals != null)
-                    <span>Goals: </span><span>{{ $stats[0]->goals }}</span><br>
+        <div class="other pl1 pr1 fz20">
+            @if($overallStats['notEmpty'])
+                <span class="fz25 tdu">Overall Stats</span><br>
+                @if($overallStats['goals'] != null)
+                    <span>Goals: </span><span>{{ $overallStats['goals'] }}</span><br>
                 @endif
-                @if($stats[0]->assists != null)
-                    <span>Assists: </span><span>{{ $stats[0]->assists }}</span><br>
+                @if($overallStats['assists'] != null)
+                    <span>Assists: </span><span>{{ $overallStats['assists'] }}</span><br>
                 @endif
-                @if($stats[0]->clean_sheets != null)
-                    <span>Clean sheets: </span><span>{{ $stats[0]->clean_sheets }}</span><br>
+                @if($overallStats['clean_sheets'] != null)
+                    <span>Clean sheets: </span><span>{{ $overallStats['clean_sheets'] }}</span><br>
                 @endif
-                @if($stats[0]->yellow_cards != null)
-                    <span>Yellow cards: </span><span>{{ $stats[0]->yellow_cards }}</span><br>
+                @if($overallStats['yellow_cards'] != null)
+                    <span>Yellow cards: </span><span>{{ $overallStats['yellow_cards'] }}</span><br>
                 @endif
-                @if($stats[0]->red_cards != null)
-                    <span>Red cards: </span><span>{{ $stats[0]->red_cards }}</span><br>
+                @if($overallStats['red_cards'] != null)
+                    <span>Red cards: </span><span>{{ $overallStats['red_cards'] }}</span><br>
                 @endif
             @endif
         </div>
+        <div class="other pl1 pr1 fz20">
+            @if($season1Stats != [])
+                <span class="fz25 tdu">Season 1 Stats</span><br>
+                @if($season1Stats->goals != null)
+                    <span>Goals: </span><span>{{ $season1Stats->goals }}</span><br>
+                @endif
+                @if($season1Stats->assists != null)
+                    <span>Assists: </span><span>{{ $season1Stats->assists }}</span><br>
+                @endif
+                @if($season1Stats->clean_sheets != null)
+                    <span>Clean sheets: </span><span>{{ $season1Stats->clean_sheets }}</span><br>
+                @endif
+                @if($season1Stats->yellow_cards != null)
+                    <span>Yellow cards: </span><span>{{ $season1Stats->yellow_cards }}</span><br>
+                @endif
+                @if($season1Stats->red_cards != null)
+                    <span>Red cards: </span><span>{{ $season1Stats->red_cards }}</span><br>
+                @endif
+            @endif
+        </div>
+        <div class="other pl1 fz20">
+            @if($season2Stats != [])
+                <span class="fz25 tdu">Season 2 Stats</span><br>
+                @if($season2Stats->goals != null)
+                    <span>Goals: </span><span>{{ $season2Stats->goals }}</span><br>
+                @endif
+                @if($season2Stats->assists != null)
+                    <span>Assists: </span><span>{{ $season2Stats->assists }}</span><br>
+                @endif
+                @if($season2Stats->clean_sheets != null)
+                    <span>Clean sheets: </span><span>{{ $season2Stats->clean_sheets }}</span><br>
+                @endif
+                @if($season2Stats->yellow_cards != null)
+                    <span>Yellow cards: </span><span>{{ $season2Stats->yellow_cards }}</span><br>
+                @endif
+                @if($season2Stats->red_cards != null)
+                    <span>Red cards: </span><span>{{ $season2Stats->red_cards }}</span><br>
+                @endif
+            @endif
+        </div>
+
     </div>
 </div>
 @endforeach
