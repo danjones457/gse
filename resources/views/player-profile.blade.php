@@ -12,27 +12,29 @@
 @foreach($player as $player)
 <div class="profile-container flex flex-wrap-wrap">
     <div class="pl1 pt1 pr1 col-lg-4 profile-image-container">
-        <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="border-radius-50p profile-image">
+        <img src="{{ asset('images/Final/'.$player->photo_url.'.JPG') }}" alt="" class="profile-image">
+        <div class="player-details">
+            <span class="fz55">{{ $player->firstname}} {{ $player->lastname }} @if($player->shirt_number != null)#{{ $player->shirt_number }}@endif</span><br>
+            <span class="fz20">D.O.B: {{ $player->dob }}</span><br>
+            <span class="fz20">Positions: {{ $player->positions }}</span><br>
+        </div>
     </div>
     <div class="p1 mla profile-text">
-        <span class="fz55">{{ $player->firstname}} {{ $player->lastname }} @if($player->shirt_number != null)#{{ $player->shirt_number }}@endif</span><br>
-        <span class="fz20">D.O.B: {{ $player->dob }}</span><br>
-        <span class="fz20">Positions: {{ $player->positions }}</span><br>
         <span class="fz20">Bio: {{ $player->description }}</span><br>
         <span class="fz20">Quote: {{ $player->quote }}</span><br>
     </div>
-    <div class="p1 flex">
-        <div class="pr1">
+    <div class="p1 tac w100p">
+        <div class="other pr1">
             @if($awards != [])
                 <span class="fz25 tdu">Awards</span>
                 @foreach($awards as $award)
-                    <div class="">
+                    <div class="fz20">
                         <span>{{ $award->award }}</span>
                     </div>
                 @endforeach
             @endif
         </div>
-        <div class="pl1">
+        <div class="other pl1 fz20">
             @if($stats != [])
                 <span class="fz25 tdu">Stats</span><br>
                 @if($stats[0]->goals != null)

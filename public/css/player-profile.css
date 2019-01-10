@@ -46,6 +46,17 @@
   font-weight: 600;
 }
 
+.card-name-black {
+  position: relative;
+  top: -180px;
+  left: -113px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #000000;
+  font-weight: 600;
+}
+
 .profile-container {
   max-width: calc(100% - 10vw);
   width: calc(100% - 10vw);
@@ -63,10 +74,21 @@
 }
 
 .profile-image {
-  width: 100%;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  width: 50%;
+  max-width: 440px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 3px solid #f4ff2a;
+}
+
+.player-details {
+  display: inline-block;
+  position: absolute;
+  padding-left: 1rem;
+}
+
+.other {
+  display: inline-block;
+  vertical-align: top;
 }
 
