@@ -92,3 +92,23 @@
   vertical-align: top;
 }
 
+.player-name {
+  font-size: 55px;
+}
+
+@media screen and (max-width: 600px) {
+  .player-name {
+    font-size: 25px;
+  }
+}
+
+.player-info {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .player-info {
+    font-size: 16px;
+  }
+}
+

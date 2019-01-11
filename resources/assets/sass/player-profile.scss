@@ -89,3 +89,17 @@
     display: inline-block;
     vertical-align: top;
 }
+
+.player-name {
+    font-size: 55px;
+    @media screen and (max-width: 600px) {
+        font-size: 25px;
+    }
+}
+
+.player-info {
+    font-size: 20px;
+    @media screen and (max-width: 600px) {
+        font-size: 16px;
+    }
+}
