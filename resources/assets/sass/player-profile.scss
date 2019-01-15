@@ -54,9 +54,7 @@
 .profile-container {
     max-width: calc(100% - 10vw);
     width: calc(100% - 10vw);
-    background-color: $gseblack;
     height: 100%;
-    color: $gseyellow;
     margin-left: auto;
     margin-right: auto;
 }
@@ -72,7 +70,7 @@
     max-width: 440px;
     display: inline-block;
     border-radius: 50%;
-    border: 3px solid $gseyellow;
+    border: 3px solid $gseblack;
 }
 
 .player-details {

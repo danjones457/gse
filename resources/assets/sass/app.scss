@@ -3,15 +3,13 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'partial/buttons';
 @import 'partial/forms';
 @import 'partial/grid';
 @import 'partial/headings';
 @import 'partial/placeholders';
-@import 'partial/popup';
 @import 'partial/reset';
-@import 'partial/tables';
 @import 'partial/variables';
+@import 'partial/buttons';
 
 html, body {
     font-family: 'Raleway', sans-serif;
@@ -34,8 +32,6 @@ html, body {
     top: 18px;
 }
 
-a {color: $gseyellow;}
-
 .hide-mobile {
     @media screen and (max-width: 1205px) {
         display: none;
@@ -45,4 +41,36 @@ a {color: $gseyellow;}
     @media screen and (min-width: 1206px) {
         display: none;
     }
+}
+
+.footer {
+    background-color: #999;
+    text-align: center;
+    height: 150px;
+}
+
+.footer-link {
+    color: $gseblack;
+}
+
+.footer-photo {
+    max-height: 150px;
+    position: relative;
+    top: -115px;
+    left: -20px;
+    @media screen and (max-width: 450px) {
+        max-height: 100px;
+    }
+}
+
+.footer-links {
+    position: relative;
+}
+
+.web-content {
+    min-height: calc(100vh - 196px);
+}
+
+.text-black {
+    color: $gseblack;
 }

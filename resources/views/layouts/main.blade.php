@@ -21,7 +21,7 @@
 
         <title>@yield('title')</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         @section('styles')
@@ -31,9 +31,11 @@
     </head>
     <body ng-controller="@yield('controller', 'app')">
         @include('layouts.menu')
-        @section('content')
-
-        @show
+        <div class="web-content">
+            @section('content')
+            @show
+        </div>
+        @include('layouts.footer')
         @section('scripts')
             <script src="{{ mix('js/app.js') }}"></script>
             <script src="{{ mix('js/main.js') }}"></script>

@@ -9,9 +9,11 @@
 
 @section('content')
 
-@foreach($seasons as $season)
-    <a class="block-selection" href="/match-highlights/{{$team}}/{{$season}}">Season {{$season}}</a>
-@endforeach
+<div class="pt1 pb1">
+    @foreach($seasons as $season)
+        <a class="block-selection mb1" href="/match-highlights/{{$team}}/{{$season}}">Season {{$season}}</a>
+    @endforeach
+</div>
 
 @endsection
 

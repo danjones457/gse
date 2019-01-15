@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="video">
+<div class="video pt1 pb1">
     <iframe width="80%" height="80%" src="https://www.youtube.com/embed/{{$video[0]}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 

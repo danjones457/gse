@@ -21,8 +21,8 @@
 
         <title>GSE</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        
         @section('styles')
             <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css">
             <link rel="stylesheet" href="{{ mix('/css/home.css') }}" type="text/css">

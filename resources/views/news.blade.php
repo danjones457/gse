@@ -8,11 +8,13 @@
 @endsection
 
 @section('content')
-    @foreach($theNews as $news)
-        <a class="news-selection" href="/news/{{$news->id}}">
-            {{ $news->title }}
-        </a>
-    @endforeach
+    <div class="pt1 pb1">
+        @foreach($theNews as $news)
+            <a class="news-selection mb1" href="/news/{{$news->id}}">
+                {{ $news->title }}
+            </a>
+        @endforeach
+    </div>
 @endsection
 
 @section('scripts')

@@ -12,8 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/team-sheets', 'TeamSheetsController@index')->name('team-sheets');
-// Route::get('/team-sheet/{gameweek}', 'TeamSheetsController@team')->name('team-sheet');
 Route::get('/league-table', 'LeagueController@index')->name('league-table');
 
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
@@ -33,5 +31,3 @@ Route::get('/stats', 'StatsController@index');
 Route::get('/stats/{season}', 'StatsController@season')->name('stats');
 
 Route::get('/awards', 'AwardsController@index')->name('awards');
-
-Route::get('/photos', 'PhotoController@index')->name('photos');

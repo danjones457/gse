@@ -1,4 +1,4 @@
-@extends('layouts.main-black')
+@extends('layouts.main')
 
 @section('title', 'Glyn Street Elite')
 
@@ -18,7 +18,7 @@
             <img src="{{ asset('images/largerGSELogo.jpg') }}" alt="GSE Logo" class="border-radius-50p pb1 gse-logo">
         </div>
         <div class="w100p tac">
-            <div class="text-yellow mla mra intro">
+            <div class="mla mra intro">
                 Welcome to the home of GSE. Click around the website and see everything from the player profiles to the awards they have received.
             </div>
         </div>

@@ -9,8 +9,10 @@
 
 @section('content')
 
-<a class="block-selection" href="/match-highlights/1">1st Team</a>
-<a class="block-selection" href="/match-highlights/2">U12s</a>
+<div class="pt1 pb1">
+    <a class="block-selection mb1" href="/match-highlights/1">1st Team</a>
+    <a class="block-selection" href="/match-highlights/2">U12s</a>
+</div>
 
 @endsection
 

@@ -1,4 +1,4 @@
-@extends('layouts.main-black')
+@extends('layouts.main')
 
 @section('title', 'GSE | News')
 

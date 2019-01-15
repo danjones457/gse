@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: $bggrey;
+    background-color: #ffffff;
     font-family: $fonts;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -58,56 +58,8 @@ svg {
     }
 }
 
-input[type=text],
-input[type=email],
-input[type=number],
-input[type=password],
-select,
-textarea {
-    font-family: inherit;
-    font-size: 100%;
-    padding: 5px;
-    border: 1px solid #d5d5d5;
-    border-radius: 2px;
-    font-size: 15px;
-    &:focus {
-        border-color: #0083da;
-    }
-    &.lg {
-        padding: 10px;
-    }
-}
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
-input[type='number'] {
-  -moz-appearance:textfield;
-}
-
-optgroup[label] {
-    font-size: 13px;
-    color: #999;
-    font-style: normal;
-    font-weight: 400;
-}
-
-optgroup option {
-    color: #000;
-    font-size: 16px;
-    margin-left: 0px;
-}
-
-main {
-    display: block;
-}
-
-.cloaked, [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
 
 .select {
     position: relative;
@@ -264,21 +216,7 @@ a.yellow {
 .cursor-pointer, .clickable {cursor: pointer}
 .cursor-help {cursor: help}
 
-.fa-times-circle {color: $red}
-.fa-check-square {color: $tutgreen}
-
-.text-white {color: #fff}
-.text-blue {color: $tutblue}
-.text-green {color: $tutgreen}
-.text-green-light {color: lighten($tutgreen, 5)}
-.text-green-dark {color: darken($tutgreen, 5)}
-.text-red {color: $red}
 .text-yellow {color: $gseyellow}
-
-.text-grey-lightest {color: #aaa}
-.text-grey-light {color: #888}
-.text-grey {color: #555}
-.text-grey-dark {color: #222}
 
 .z100 {z-index:100;}
 
@@ -323,7 +261,6 @@ a.yellow {
 .bg-grey-light {background-color: #fafafa}
 .bg-black-1 {background-color: #333}
 .bg-black-2 {background-color: #484848}
-.bg-blue {background-color: $tutblue}
 
 .sb {font-weight: 600}
 .bold {font-weight: bold}

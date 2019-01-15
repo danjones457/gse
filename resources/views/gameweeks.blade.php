@@ -9,9 +9,11 @@
 
 @section('content')
 
-@foreach($gameweeks as $gameweek)
-    <a class="gameweek" href="/team-sheet/{{$gameweek->gameweek}}">Gameweek {{ $gameweek->gameweek }}</a>
-@endforeach
+<div class="pt1 pb1">
+    @foreach($gameweeks as $gameweek)
+        <a class="gameweek" href="/team-sheet/{{$gameweek->gameweek}}">Gameweek {{ $gameweek->gameweek }}</a>
+    @endforeach
+</div>
 
 @endsection
 

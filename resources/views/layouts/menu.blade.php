@@ -6,7 +6,6 @@
     <a href="/player-profiles" class="link link-yellow header-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Players</a>
     <a href="/stats" class="link link-yellow header-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>
     <a href="/awards" class="link link-yellow header-link"><i class="fa fa-trophy" aria-hidden="true"></i> Awards</a>
-    <a href="/photos" class="link link-yellow header-link"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a>
 </div>
 <div class="mobile-menu show-mobile" ng-class="{fix: expand}">
     <div class="pl1 fz30 flex">
@@ -22,6 +21,5 @@
         <a href="/player-profiles" class="link link-yellow mobile-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Players</a>
         <a href="/stats" class="link link-yellow mobile-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>
         <a href="/awards" class="link link-yellow mobile-link"><i class="fa fa-trophy" aria-hidden="true"></i> Awards</a>
-        <a href="/photos" class="link link-yellow mobile-link"><i class="fa fa-camera" aria-hidden="true"></i> Photos</a>
     </div>
 </div>

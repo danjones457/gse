@@ -9,10 +9,12 @@
 
 @section('content')
 
-<a class="season" href="/stats/all-time">All time</a>
-@foreach($seasons as $season)
-    <a class="season" href="/stats/{{$season->season}}">Season {{ $season->season }}</a>
-@endforeach
+<div class="pt1 pb1">
+    <a class="season" href="/stats/all-time">All time</a>
+    @foreach($seasons as $season)
+        <a class="season" href="/stats/{{$season->season}}">Season {{ $season->season }}</a>
+    @endforeach
+</div>
 
 @endsection
 
