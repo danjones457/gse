@@ -1,7 +1,8 @@
 <div class="header-links hide-mobile">
     <a href="/" class="link link-yellow header-link"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
     <a href="/league-table" class="link link-yellow header-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> League</a>
-    <a href="/match-highlights" class="link link-yellow header-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Matches</a>
+    <a href="/match-highlights" class="link link-yellow header-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Watch</a>
+    <a href="/fixtures" class="link link-yellow header-link"><i class="fa fa-calendar" aria-hidden="true"></i> Fixtures</a>
     <a href="/news" class="link link-yellow header-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
     <a href="/player-profiles" class="link link-yellow header-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Players</a>
     <a href="/stats" class="link link-yellow header-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>
@@ -16,7 +17,8 @@
     <div class="mobile-menu-container" ng-show="expand">
         <a href="/" class="link link-yellow mobile-link"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
         <a href="/league-table" class="link link-yellow mobile-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> League</a>
-        <a href="/match-highlights" class="link link-yellow mobile-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Matches</a>
+        <a href="/match-highlights" class="link link-yellow mobile-link"><i class="fa fa-video-camera" aria-hidden="true"></i> Watch</a>
+        <a href="/fixtures" class="link link-yellow mobile-link"><i class="fa fa-calendar" aria-hidden="true"></i> Fixtures</a>
         <a href="/news" class="link link-yellow mobile-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
         <a href="/player-profiles" class="link link-yellow mobile-link"><i class="fa fa-user-circle" aria-hidden="true"></i> Players</a>
         <a href="/stats" class="link link-yellow mobile-link"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a>

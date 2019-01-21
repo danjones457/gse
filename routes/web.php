@@ -31,3 +31,5 @@ Route::get('/stats', 'StatsController@index');
 Route::get('/stats/{season}', 'StatsController@season')->name('stats');
 
 Route::get('/awards', 'AwardsController@index')->name('awards');
+
+Route::get('/fixtures', 'FixturesController@index');

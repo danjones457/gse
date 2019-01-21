@@ -152,26 +152,6 @@ return [
 
     'id_encryption_key' => env('ID_ENCRYPTION_KEY', null),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Integrations
-    |--------------------------------------------------------------------------
-    |
-    | These are the keys required for the various integrations used in the app.
-    |
-    */
-
-    'io_api_key' => env('IO_API_KEY', null),
-
-    'io_client_id' => env('IO_CLIENT_ID', null),
-
-    'io_client_secret' => env('IO_CLIENT_SECRET', null),
-
-    'transact_provider_key' => env('TRANSACT_PROVIDER_KEY', null),
-
-    'mailchimp_key' => env('MAILCHIMP_KEY', null),
-
-    'dump_binary_path' => env('DUMP_BINARY_PATH', null),
 
     /*
     |--------------------------------------------------------------------------

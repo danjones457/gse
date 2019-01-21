@@ -33,12 +33,12 @@ html, body {
 }
 
 .hide-mobile {
-    @media screen and (max-width: 1205px) {
+    @media screen and (max-width: 1290px) {
         display: none;
     }
 }
 .show-mobile {
-    @media screen and (min-width: 1206px) {
+    @media screen and (min-width: 1291px) {
         display: none;
     }
 }

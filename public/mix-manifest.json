@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/css/home.css": "/css/home.css",
     "/css/main.css": "/css/main.css",
     "/css/tester.css": "/css/tester.css",
@@ -12,6 +13,5 @@
     "/service-worker.js": "/service-worker.js",
     "/js/player-profile.js": "/js/player-profile.js",
     "/js/main.js": "/js/main.js",
-    "/js/home.js": "/js/home.js",
-    "/css/app.css": "/css/app.css"
+    "/js/home.js": "/js/home.js"
 }

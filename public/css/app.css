@@ -3332,13 +3332,13 @@ body {
   top: 18px;
 }
 
-@media screen and (max-width: 1205px) {
+@media screen and (max-width: 1290px) {
   .hide-mobile {
     display: none;
   }
 }
 
-@media screen and (min-width: 1206px) {
+@media screen and (min-width: 1291px) {
   .show-mobile {
     display: none;
   }
