@@ -23,7 +23,7 @@
                     @foreach($goalscorers as $goalscorer)
                         <div>
                             <span>{{ $goalscorer[1]->firstname }} {{ $goalscorer[1]->lastname }} &ThickSpace;</span>
-                            <span>{{ $goalscorer[0]->goals }}</span>
+                            <span class="fr">{{ $goalscorer[0]->goals }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -39,7 +39,7 @@
                     @foreach($keepers as $keeper)
                         <div>
                             <span>{{ $keeper[1]->firstname }} {{ $keeper[1]->lastname }} &ThickSpace;</span>
-                            <span>{{ $keeper[0]->clean_sheets }}</span>
+                            <span class="fr">{{ $keeper[0]->clean_sheets }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -55,7 +55,7 @@
                     @foreach($assists as $assist)
                         <div>
                             <span>{{ $assist[1]->firstname }} {{ $assist[1]->lastname }} &ThickSpace;</span>
-                            <span>{{ $assist[0]->assists }}</span>
+                            <span class="fr">{{ $assist[0]->assists }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -71,7 +71,7 @@
                     @foreach($yellow_cards as $yellowCard)
                         <div>
                             <span>{{ $yellowCard[1]->firstname }} {{ $yellowCard[1]->lastname }} &ThickSpace;</span>
-                            <span>{{ $yellowCard[0]->yellow_cards }}</span>
+                            <span class="fr">{{ $yellowCard[0]->yellow_cards }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -87,7 +87,39 @@
                     @foreach($red_cards as $redCard)
                         <div>
                             <span>{{ $redCard[1]->firstname }} {{ $redCard[1]->lastname }} &ThickSpace;</span>
-                            <span>{{ $redCard[0]->red_cards }}</span>
+                            <span class="fr">{{ $redCard[0]->red_cards }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
+        @if(count($goalsPerGame) > 0)
+            <div class="pr1 pt2">
+                <div class="fz30 pb1 pl1 tac">
+                    Goals per game
+                </div>
+                <div class="fz25 flex fd-c pl1">
+                    @foreach($goalsPerGame as $key => $value)
+                        <div>
+                            <span>{{ $key }} &ThickSpace;</span>
+                            <span class="fr">{{ $value }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
+        @if(count($assistsPerGame) > 0)
+            <div class="pr1 pt2">
+                <div class="fz30 pb1 pl1 tac">
+                    Assists per game
+                </div>
+                <div class="fz25 flex fd-c pl1">
+                    @foreach($assistsPerGame as $key => $value)
+                        <div>
+                            <span>{{ $key }} &ThickSpace;</span>
+                            <span class="fr">{{ $value }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -96,6 +128,18 @@
 
     </div>
 </div>
+
+<div class="pt1 pb1 tac flex fz30">
+    <div class="mla pr1">
+        <span class="text-grey bold">Total goals</span><br>
+        <span>{{ $totalGoals }}</span>
+    </div>
+    <div class="mra">
+        <span class="text-grey bold">Total assists</span><br>
+        <span>{{ $totalAssists }}</span>
+    </div>
+</div>
+
 
 @endsection
 

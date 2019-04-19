@@ -13,7 +13,7 @@ class CreateGoalscorersTable extends Migration
      */
     public function up()
     {
-        Schema::create('goalscorers', function (Blueprint $table) {
+        Schema::create('stats', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('player_id');
             $table->integer('goals')->nullable();
@@ -29,6 +29,6 @@ class CreateGoalscorersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goalscorers');
+        Schema::dropIfExists('stats');
     }
 }

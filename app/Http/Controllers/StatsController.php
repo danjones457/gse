@@ -11,7 +11,17 @@ class StatsController extends Controller
     {
         $seasons = DB::table('stats')->distinct()->get(['season']);
 
-        return view('season-stats', ['seasons' => $seasons]);
+        $statsData = DB::table('stats')->get();
+
+        $totalGoals = 0;
+        $totalAssists = 0;
+
+        foreach ($statsData as $key => $data) {
+            $totalGoals += $data->goals;
+            $totalAssists += $data->assists;
+        }
+
+        return view('season-stats', ['seasons' => $seasons, 'totalGoals' => $totalGoals, 'totalAssists' => $totalAssists]);
     }
 
 
@@ -27,30 +37,64 @@ class StatsController extends Controller
         $assists = $this->getStat('assists', $season);
         $yellowCards = $this->getStat('yellow_cards', $season);
         $redCards = $this->getStat('red_cards', $season);
+        $gamesPlayed = $this->getStat('games_played', $season);
+
+        $totalGoals = 0;
+        $totalAssists = 0;
+
+        foreach ($goalscorers as $key => $value) {
+            $totalGoals += $value->goals;
+        }
+        foreach ($assists as $key => $value) {
+            $totalAssists += $value->assists;
+        }
 
         $goalScorersReturn = [];
         for ($i=0; $i < count($goalscorers); $i++) {
             for ($j=0; $j < count($players); $j++) {
                 if ($goalscorers[$i]->player_id == $players[$j]->id) {
+                    for ($k=0; $k < count($gamesPlayed); $k++) {
+                        if ($gamesPlayed[$k]->player_id == $players[$j]->id) {
+                            $goalscorers[$i]->goalsPerGame = round(($goalscorers[$i]->goals / $gamesPlayed[$k]->games_played), 2);
+                        }
+                    }
                     array_push($goalScorersReturn, [$goalscorers[$i], $players[$j]]);
                 }
             }
         }
+
+        $goalsPerGame = [];
+        for ($i=0; $i < count($goalScorersReturn); $i++) {
+            $goalsPerGame[$goalScorersReturn[$i][1]->firstname.' '.$goalScorersReturn[$i][1]->lastname] = $goalScorersReturn[$i][0]->goalsPerGame;
+        }
+        arsort($goalsPerGame);
+
+
+        $assistsReturn = [];
+        for ($i=0; $i < count($assists); $i++) {
+            for ($j=0; $j < count($players); $j++) {
+                if ($assists[$i]->player_id == $players[$j]->id) {
+                    for ($k=0; $k < count($gamesPlayed); $k++) {
+                        if ($gamesPlayed[$k]->player_id == $players[$j]->id) {
+                            $assists[$i]->assistsPerGame = round(((int) $assists[$i]->assists / (int) $gamesPlayed[$k]->games_played), 2);
+                        }
+                    }
+                    array_push($assistsReturn, [$assists[$i], $players[$j]]);
+                }
+            }
+        }
+
+        $assistsPerGame = [];
+        for ($i=0; $i < count($assistsReturn); $i++) {
+            $assistsPerGame[$assistsReturn[$i][1]->firstname.' '.$assistsReturn[$i][1]->lastname] = $assistsReturn[$i][0]->assistsPerGame;
+        }
+        arsort($assistsPerGame);
 
         $keepersReturn = [];
         for ($i=0; $i < count($keepers); $i++) {
             for ($j=0; $j < count($players); $j++) {
                 if ($keepers[$i]->player_id == $players[$j]->id) {
                     array_push($keepersReturn, [$keepers[$i], $players[$j]]);
-                }
-            }
-        }
-
-        $assistsReturn = [];
-        for ($i=0; $i < count($assists); $i++) {
-            for ($j=0; $j < count($players); $j++) {
-                if ($assists[$i]->player_id == $players[$j]->id) {
-                    array_push($assistsReturn, [$assists[$i], $players[$j]]);
                 }
             }
         }
@@ -73,7 +117,18 @@ class StatsController extends Controller
             }
         }
 
-        return view('stats', ["goalscorers" => $goalScorersReturn, "keepers" => $keepersReturn, "assists" => $assistsReturn, "yellow_cards" => $yellowCardsReturn, "red_cards" => $redCardsReturn, "season" => $seasonReturn]);
+        return view('stats', [
+            "goalscorers" => $goalScorersReturn,
+            "keepers" => $keepersReturn,
+            "assists" => $assistsReturn,
+            "yellow_cards" => $yellowCardsReturn,
+            "red_cards" => $redCardsReturn,
+            "season" => $seasonReturn,
+            "totalGoals" => $totalGoals,
+            "totalAssists" => $totalAssists,
+            "goalsPerGame" => $goalsPerGame,
+            "assistsPerGame" => $assistsPerGame
+        ]);
     }
 
     public function getStat($stat, $season)
