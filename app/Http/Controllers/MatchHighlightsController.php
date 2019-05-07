@@ -20,7 +20,7 @@ class MatchHighlightsController extends Controller
 
     public function game($team, $season)
     {
-        $weeks = DB::table('videos')->distinct()->where('team', $team)->where('season', $season)->orderBy('week')->pluck('week');
+        $weeks = DB::table('videos')->distinct()->where('team', $team)->where('season', $season)->orderBy('week')->select('week', 'team_played')->get();
         return view('match-highlights/game-picker', ['season' => $season, 'team' => $team, 'weeks' => $weeks]);
     }
 

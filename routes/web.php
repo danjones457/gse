@@ -11,9 +11,13 @@
 |
 */
 
+// Home routes
 Route::get('/', 'HomeController@index')->name('home');
+
+// League routes
 Route::get('/league-table', 'LeagueController@index')->name('league-table');
 
+// Match highlights routes
 Route::get('/match-highlights', 'MatchHighlightsController@index')->name('match-highlights');
 Route::get('/match-highlights/{team}', 'MatchHighlightsController@seasons');
 Route::get('/match-highlights/{team}/{season}', 'MatchHighlightsController@game');
@@ -27,9 +31,12 @@ Route::get('/player-profile/{playerId}', 'PlayerProfileController@player')->name
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/news/{newsId}', 'NewsController@getNews');
 
+// Stats routes
 Route::get('/stats', 'StatsController@index');
 Route::get('/stats/{season}', 'StatsController@season')->name('stats');
 
+// Awards routes
 Route::get('/awards', 'AwardsController@index')->name('awards');
 
+// Fixtures routes
 Route::get('/fixtures', 'FixturesController@index');

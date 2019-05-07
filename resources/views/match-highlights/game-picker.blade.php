@@ -11,7 +11,7 @@
 
 <div class="pt1 pb1">
     @foreach($weeks as $week)
-        <a class="block-selection mb1" href="/match-highlights/{{$team}}/{{$season}}/{{$week}}">Gameweek {{$week}}</a>
+        <a class="block-selection mb1" href="/match-highlights/{{$team}}/{{$season}}/{{$week->week}}">{{$week->team_played}} (GW{{$week->week}})</a>
     @endforeach
 </div>
 
