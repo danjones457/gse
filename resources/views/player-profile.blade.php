@@ -52,6 +52,9 @@
                 @if($overallStats['red_cards'] != null)
                     <span>Red cards: </span><span>{{ $overallStats['red_cards'] }}</span><br>
                 @endif
+                @if($overallStats['games_played'] != null)
+                    <span>Games played: </span><span>{{ $overallStats['games_played'] }}</span><br>
+                @endif
             @endif
         </div>
         <div class="other pl1 pr1 fz20">
@@ -72,6 +75,9 @@
                 @if($season1Stats->red_cards != null)
                     <span>Red cards: </span><span>{{ $season1Stats->red_cards }}</span><br>
                 @endif
+                @if($season1Stats->games_played != null)
+                    <span>Games played: </span><span>{{ $season1Stats->games_played }}</span><br>
+                @endif
             @endif
         </div>
         <div class="other pl1 fz20">
@@ -91,6 +97,9 @@
                 @endif
                 @if($season2Stats->red_cards != null)
                     <span>Red cards: </span><span>{{ $season2Stats->red_cards }}</span><br>
+                @endif
+                @if($season2Stats->games_played != null)
+                    <span>Games played: </span><span>{{ $season2Stats->games_played }}</span><br>
                 @endif
             @endif
         </div>

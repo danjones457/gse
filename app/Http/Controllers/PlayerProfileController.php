@@ -30,6 +30,7 @@ class PlayerProfileController extends Controller
             'clean_sheets' => 0,
             'yellow_cards' => 0,
             'red_cards' => 0,
+            'games_played' => 0,
             'notEmpty' => false
         ];
 
