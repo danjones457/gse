@@ -19,7 +19,7 @@
     "dayjs": "^1.5.18",
     "jquery": "^2.2.0",
     "laravel-mix": "^2.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "materialize-css": "^1.0.0-rc.2",
     "url-parse": "^1.4.3"
   },
