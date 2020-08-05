@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "angular": "^1.6.7",
+    "angular": "^1.8.0",
     "angularjs-dragula": "^2.0.0",
     "canvg-fixed": "^1.0.0",
     "chart.js": "^2.7.2",
