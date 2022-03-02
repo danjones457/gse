@@ -21,7 +21,7 @@
     "laravel-mix": "^2.0",
     "lodash": "^4.17.5",
     "materialize-css": "^1.0.0-rc.2",
-    "url-parse": "^1.4.3"
+    "url-parse": "^1.5.9"
   },
   "browserslist": [
     "last 2 versions",
